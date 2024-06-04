@@ -1,1 +1,1 @@
-[ZulaUga-App](https://katodesire63.github.io/ZulaUga-App/)
+[ZulaUga-App](https://katodesire63.github.io/ZulaUga-App/) by Kato Desire.
