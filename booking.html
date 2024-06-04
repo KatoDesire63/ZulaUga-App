@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css\styles.css">
+   <script defer src="js\scripts.js"></script>
+	<title></title>
+</head>
+<body>
+   <header>
+      <nav>
+         <a href="E:\ZulaUga\index.html">Home</a>
+         <a href="E:\ZulaUga\attractions.html">Attractions</a>
+         <a href="E:\ZulaUga\gallery.html">Gallery</a>
+         <a href="E:\ZulaUga\booking.html">Book Now</a>
+      </nav>
+   </header>
+   <section class="book-hero" style="background: url('IMG/money-3602159_1280.jpg') center center/cover no-repeat;">
+   	<div class="hero-overlay"></div>
+      <div class="hero-content">
+   		<h1 style="color: black;"><i>Book Your Dream Vacation<i></h1>
+   	</div>
+   </section>
+
+   <section class="special-offers">
+   	<h2>Special Offers & Packages</h2>
+   	<div class="offers-grid">
+   		<div class="offer-item">
+   			<img src="IMG/bike-3636454_1280.jpg">
+   			<h3>Family Adventure</h3>
+   			<p>
+   				Bring the whole family for an adventure-packed trip.
+   				Includes guided tours and activities for all ages.
+   			</p>
+   			<p><strong>Price:</strong>$799</p>
+   		</div>
+   		<div class="offer-item">
+   			<img src="IMG/couple-3798371_1280.jpg">
+   			<h3>Romantic Getaway</h3>
+   			<p>
+   				Enjoy a romantic getaway with your partner.
+   				Includes spa treatments and a candlelit dinner.
+   			</p>
+   			<p><strong>Price:</strong>$499</p>
+   		</div>
+   		<div class="offer-item">
+   			<img src="Img\young-woman-1745173_1280.jpg">
+   			<h3>Weekend Escape</h3>
+   			<p>
+   			  Perfect for a quick escape.
+   			  Includes two nights stay and breakfast for two.
+   			</p>
+   			<p><strong>Price:</strong>$299</p>
+   		</div>
+   	</div>
+   </section>
+
+   <section class="booking-form">
+   	<h2>Book Your Trip Now</h2>
+   	<form id="bookingForm">
+   		<div class="form-group">
+   			<label for="name">Full Name:</label>
+   			<input type="text" name="name" id="name" required>
+   		</div>
+         <div class="form-group">
+   			<label for="email">Email:</label>
+   			<input type="email" name="email" id="email" required>
+   		</div>
+   		<div class="form-group">
+   			<label for="phone">Phone Number:</label>
+   			<input type="tel" name="phone" id="phone" required>
+   		</div>
+   		<div class="form-group">
+   			<label for="arrival-date">Arrival Date:</label>
+   			<input type="date" name="arrival_date" id="arrival-date" required>
+   		</div>
+   		<div class="form-group">
+   			<label for="departure-date">Departure Date:</label>
+   			<input type="date" name="departure_date" id="departure-date" required>
+   		</div>
+   		<div class="form-group">
+   			<label for="adults">Number of Adults:</label>
+   			<input type="number" name="adults" id="adults" min="1" required>
+   		</div>
+   		<div class="form-group">
+   			<label for="children">Number of Children:</label>
+   			<input type="number" name="children" id="children" min="0">
+   		</div>
+   		<div class="form-group">
+   			<label for="accommodation">Accommodation Type:</label>
+   			<select id="accommodation" name="accommodation" required>
+   				<option value="hotel">Hotel</option>
+   			   <option value="resort">Resort</option>
+   			   <option value="guesthouse">Guesthouse</option>
+   			   <option value="villa">Villa</option>
+   			</select>	
+   		</div>
+   	   <div class="form-group">
+   	   	<label for="package">Select Package:</label>
+   	   	<select id="package" name="package">
+   	   	   <option value="none">None</option>
+   	   	   <option value="romantic">Romantic Getaway</option>
+   	   	   <option value="family">Family Adventure</option>
+   	   	</select>
+   	   </div>
+
+         <!--Payment details-->
+         <h3>Payment Information</h3>
+         <div class="form-group">
+            <label for="payment-method">
+               Select Payment Method:
+            </label>
+            <select id="payment-method" name="payment-method" required>
+               <option value="mobile-money">
+                  Mobile Money
+               </option>
+               <option value="visa-card">
+                  <img src="IMG\visa-card.jpeg" class="payment-logo" data-method="visa">
+                  Visa Card
+               </option>
+               <option value="paypal">
+                  <img src="IMG\paypal.jpeg" class="payment-logo" data-method="paypal">
+                  PayPal
+               </option>
+            </select>
+         </div>
+
+         <!--Mobile Money payment details-->
+         <div id="mobile-money-details" class="payment-details">
+            <div class="form-group">
+               <label>Mobile Money Operator:</label>
+               <input type="radio" id="airtel-money" name="mm-operator" value="Airtel Money">
+               <label for="airtel-money">
+                  <img src="IMG\airtel2.jpeg" class="payment-logo" data-method="airtel">
+                  Airtel Money
+               </label>
+               <input type="radio" id="mtn-money" name="mm-operator" value="MTN Money">
+               <label for="mtn-money">
+                  <img src="IMG\mtn.jpeg" class="payment-logo" data-method="mtn">
+                  MTN Money
+               </label>
+            </div>
+            <div class="form-group">
+               <label for="mm-number">Mobile Money Number:</label>
+               <input type="tel" id="mm-number" name="mm-number" required>
+               <small id="mm-error" class="error-message"></small>
+            </div>
+         </div>
+
+         <!--Visa Card payment details-->
+         <div id="visa-card-details" class="payment-details">
+            <div class="form-group">
+               <label for="card-number">Card Number</label>
+               <input type="text" id="card-number" name="card-number">
+            </div>
+            <div class="form-group">
+               <label for="card-expiry">Expiry Date:</label>
+               <input type="month" id="card-expiry" name="card-expiry">
+            </div>
+            <div class="form-group">
+               <label for="card-cvv">CVV:</label>
+               <input type="text" id="card-cvv" name="card-cvv" required>
+            </div>
+         </div>
+
+         <!--PayPal payment details-->
+         <div id="paypal-details" class="payment-details">
+            <div class="form-group">
+               <label for="paypal-email">PayPal Email:</label>
+               <input type="email" id="paypal-email" name="paypal-email" required>
+            </div>
+         </div>
+
+         <button type="submit" class="submit-button">Book Now</button>
+   	</form>
+   </section>
+
+   <footer>
+      <p>
+         &copy; 2024 ZulaUga. All rights reserved.
+      </p>
+   </footer>
+
+</body>
+</html>

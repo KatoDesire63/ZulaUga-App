@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Destination</title>
+	<link rel="stylesheet" type="text/css" href="css\styles.css">
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://kit.fontawesome.com/16a8209631.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="IMG\logo2.png">
+        </div>
+    	<nav>
+            <ul>
+                <li>
+                    <a href="E:\ZulaUga\index.html">Home</a>
+                </li>
+                <li>
+                    <a href="E:\ZulaUga\attractions.html">Attactions</a>
+                </li>
+                <li>
+                    <a href="E:\ZulaUga\gallery.html">Gallery</a>
+                </li>
+                <li>
+                    <a href="E:\ZulaUga\map.html">Map</a>
+                </li>
+            </ul>	
+    	</nav>
+    </header>
+
+    <section class="hero">
+    	<img src="IMG\Green Modern Dream Destination Instagram Post.png">
+        <a href="E:\ZulaUga\booking.html" class="cta-button">Book Your Trip Now</a>
+    </section>
+
+    <!--Search Bar-->
+    <section id="search-bar">
+        <div class="search-container">
+            <input type="text" placeholder="Search sites...">
+            <button onclick="searchSites()">Search</button>
+        </div>
+    </section>
+
+    <section class="highlights">
+        <div class="highlight-cards">
+            <div class="highlight-card">
+               <img src="IMG\fort-portal-2138189_1280.jpg">
+               <h3>Landscapes</h3>
+               <p>Explore the breathtaking landscapes and scenic views.</p>
+               <a href="E:\ZulaUga\natural.html" class="highlight-button">Learn More</a> 
+            </div>
+            <div class="highlight-card">
+               <img src="IMG\hut-2108858_1280.jpg">
+               <h3>Cultural Sites</h3>
+               <p>Discover the rich cultural heritage and historical sites.</p>
+               <a href="E:\ZulaUga\cultural.html" class="highlight-button">Learn More</a> 
+            </div>
+            <div class="highlight-card">
+               <img src="IMG\kagyana-2955466_1280.jpg">
+               <h3>Foods</h3>
+               <p>Experience the vibrant local markets and delicious cuisine.</p>
+               <a href="#" class="highlight-button">Learn More</a> 
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Our Vistors Say</h2>
+        <div id="testimonialsContainer" class="testimonials-container">
+            <!--Testimonials will be injected here by JavaScript-->
+            <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <img src="IMG\rocks-6351404_1280.jpg">
+                <blockquote>
+                    "Itinda falls is a paradise! The views are 
+                    stunning and the people are so friendly.
+                    Can't wait to come back!"
+                </blockquote>
+                <p>Itinda falls</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="IMG\kazinga-channel-6107470_1280.jpg">
+                <blockquote>
+                    "I had the best vacation ever. The attractions
+                    were incredible,and the food was out of this
+                    world."
+                </blockquote>
+                <p>Kazinga Channel</p>
+            </div>
+            <div class="testimonial-card">
+                <img src="IMG\murchison-falls-2298591_1280.jpg">
+                <blockquote>
+                    "An unforgettable experience! The local culture is 
+                    rich and the natural beauty is breathtaking." 
+                </blockquote>
+                <p>Murchison falls</p>
+            </div>
+        </div>
+        </div>
+    </section>
+ 
+    <section class="submit-testimonial">
+        <button id="goToTestimonialForm" class="submit-button1">Submit your Testimonial</button>
+    </section>
+
+    <script>
+        document.getElementById('goToTestimonialForm').addEventListener('click',function() {
+            window.location.href='E:/ZulaUga/testimonial-form.html';
+        });
+    </script>
+
+    <footer>
+        <div class="contact-section">
+            <h2>Contact Us</h2>
+            <p>Email: info@ZulaUga.com</p>
+            <p>Phone: +256772515359</p>
+            <div class="social-media-links">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-whatsapp"></a>
+                <a href="#" class=" fa fa-telegram"></a>
+            </div>
+        </div>
+        <p>&copy; 2024 ZulaUga. All rights reserved.</p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load',() => {
+                navigator.serviceWorker.register('/service-worker.js')
+                .then(registration => {
+                    console.log('ServiceWorker registration successful with scope:',registration.scope);
+                }, error => {
+                    console.log('ServiceWorker registration failed:', error);
+                });
+            });
+        }
+    </script>
+
+    <script defer src="E:\ZulaUga\js\scripts.js"></script>
+</body>
+</html>
+    

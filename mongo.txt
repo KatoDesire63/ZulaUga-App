@@ -1,0 +1,9 @@
+MongoDB connection string
+mongodb+srv://katodesire9:<password>@zulauga.kk5tmgu.mongodb.net/?retryWrites=true&w=majority&appName=Zulauga
+
+
+MongoDB password
+Ur2x6F6eNk9DHepY.
+
+User name
+katodesire9.

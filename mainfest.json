@@ -1,0 +1,20 @@
+{
+	"name": "ZulaUga App",
+	"short_name": "ZulaUga",
+	"start_url": "/index.html",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#333333",
+	"icons": [
+		{
+			"src": "/images/png",
+			"sizes": "192*192",
+			"type": "image/png"
+		},
+		{
+			"src": "/images.png",
+			"sizes": "512*512",
+			"type": "image/png"
+		}
+	]
+}
