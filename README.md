@@ -5,11 +5,13 @@ heritage of Uganda. It also enables both local and international tourists to boo
 use a map to find nearby accommodations and tourist attractions.
 And also make payments for seamless user exprience.
 
-##Table of Contents
+
+## Table of Contents
 -[Features](#features)
 -[Technologies Used](#technologies-used)
 
-##Features
+
+## Features
 - **Home Page**: Overview of tourist attractions with a call to action to book a trip.
 - **Attractions Page**: Detailed descriptions of various tourist attractions, categorized for easy navigation.
 - **Gallery Page**: Photo gallery of beautiful tourist spots.
