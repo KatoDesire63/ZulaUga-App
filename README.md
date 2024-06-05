@@ -24,8 +24,6 @@ And also make payments for seamless user exprience.
   - **Backend**: Node.js, Express.js, MongoDB.
   - **APIs**: MetaWeather for weather information, OpenStreetMap with Leaflet for maps.
   - **Payment Intergration**: Mobile Money(Airtel and MTN), Visa Card, PayPal.
-
-    ##Setup Intructions
     
   
 
