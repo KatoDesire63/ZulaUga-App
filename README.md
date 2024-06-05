@@ -8,15 +8,8 @@ And also make payments for seamless user exprience.
 ##Table of Contents
 -[Features](#features)
 -[Technologies Used](#technologies-used)
--[Setup Instructions](#setup-intructions)
--[Usage](#usage)
--[Folder Structure](#folder-structure)
--[API Integration](#api-integration)
--[Contributing](#contributing)
--[Lincense](#license)
 
 ##Features
-
 - **Home Page**: Overview of tourist attractions with a call to action to book a trip.
 - **Attractions Page**: Detailed descriptions of various tourist attractions, categorized for easy navigation.
 - **Gallery Page**: Photo gallery of beautiful tourist spots.
