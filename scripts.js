@@ -13,15 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	const culturalButton = document.getElementById('cultural');
 
 	historicalButton.addEventListener('click',() => {
-		window.location.href = 'E:/ZulaUga/historical.html';
+		window.location.href = 'historical.html';
 	});
 
 	naturalButton.addEventListener('click',() => {
-		window.location.href = 'E:/ZulaUga/natural.html';
+		window.location.href = 'natural.html';
 	});
 
 	culturalButton.addEventListener('click',() => {
-		window.location.href = 'E:/ZulaUga/cultural.html'
+		window.location.href = 'cultural.html'
 	});
 });
 
