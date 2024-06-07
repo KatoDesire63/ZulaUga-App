@@ -1,8 +1,31 @@
-//Home page navigation menu
-function toggleMenu() {
-    const menu = document.getElementById('nav-menu');
-    menu.classList.toggle('show');
-}
+//Bottom navbar
+document.addEventListener('DOMContentLoaded', () => {
+    const navItems = document.querySelectorAll('.nav-item');
+    const contentDiv = document.querySelector('.content');
+
+    navItems.forEach(item => {
+        item.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            // Remove active class from all items
+            navItems.forEach(i => i.classList.remove('active'));
+
+            // Add active class to the clicked item
+            item.classList.add('active');
+
+            const target = item.getAttribute('href').substring(1);
+
+            // Load content dynamically
+            loadContent(target);
+        });
+    });
+
+    function loadContent(target) {
+        // Simulate loading new content
+        contentDiv.innerHTML = `<h1>${target.charAt(0).toUpperCase() + target.slice(1)} Page</h1><p>Content for ${target} page.</p>`;
+    }
+});
+
 
 
 //Smooth scrolling
