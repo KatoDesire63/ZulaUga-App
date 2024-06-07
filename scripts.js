@@ -170,91 +170,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //Map and Weather Page
-document.addEventListener("DOMContentLoaded", function() {
-	const map = L.map('map').setView([1.3733,32.2903], 6); //Default to Uganda.
+// Initialize the map
+const map = L.map('map').setView([1.3733, 32.2903], 7); // Coordinates for Uganda
 
-	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-		maxZoom:19,
-		attribution: '&copy;OpenStreetMap contributors'
-	}).addTo(map);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
 
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(
-			position => {
-				const userLocation = [position.coords.latitude,position.coords.longitude];
-				map.setView(userLocation, 12);
-				L.marker(userLocation).addTo(map)
-				.bindPopup('You are here!')
-				.openPopup();
+// Add a marker for a sample tourist attraction
+L.marker([0.3476, 32.5825]).addTo(map) // Coordinates for Kampala
+    .bindPopup('Kampala, Uganda')
+    .openPopup();
 
-				fetchWeather(userLocation);
-				fetchNearbyPlaces(userLocation);
-			},
-			() => {
-				handletLocationError(true);
-			},
-		);
-	} else {
-		handletLocationError(false);
-	}
+// Function to fetch weather data from MetaWeather API
+async function getWeather() {
+    const response = await fetch('https://www.metaweather.com/api/location/search/?query=kampala');
+    const location = await response.json();
 
-	function handletLocationError(browerHasGeolocation) {
-		alert(browerHasGeolocation ? 'Geolocation service failed.':
-			'Your browser doesn\'t support geolocation.');
-	}
+    if (location.length > 0) {
+        const woeid = location[0].woeid;
+        const weatherResponse = await fetch(`https://www.metaweather.com/api/location/${woeid}/`);
+        const weatherData = await weatherResponse.json();
+        displayWeather(weatherData);
+    }
+}
 
-	function fetchNearbyPlaces(location) {
-		//Example using Overpass API to fetch nearby amenities
-		const query = `
-		    [out:json];
-		    (
-		    node["tourism"="attraction"] (around:5000, ${location[0]}, ${location[1]});
-            node["tourism"="hotel"] (around:5000, ${location[0]}, ${location[1]});
-		    );
-		    out body;
-		`;
+// Function to display weather data
+function displayWeather(data) {
+    const weatherInfo = document.getElementById('weather-info');
+    const today = data.consolidated_weather[0];
+    const weatherHtml = `
+        <div class="weather-info">
+            <div>Temperature: ${Math.round(today.the_temp)}°C</div>
+            <div>Weather: ${today.weather_state_name}</div>
+        </div>
+        <div class="weather-info">
+            <div>Min Temp: ${Math.round(today.min_temp)}°C</div>
+            <div>Max Temp: ${Math.round(today.max_temp)}°C</div>
+        </div>
+    `;
+    weatherInfo.innerHTML = weatherHtml;
+}
 
-		const url = `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`;
-
-		fetch(url).then(response => response.json())
-		           .then(data => {
-		           	data.elements.forEach(place => {
-		           		L.marker([place.lat, place.lon]).addTo(map)
-		           		                                .bindPopup(`<strong>${place.tags.name}</strong><br>
-		           		                                	${place.tags.tourism}`);
-		           	});
-		           })
-		           .catch(error => console.error('Error fetching nearby places:',error));
-	}
-
-	function fetchWeather(location) {
-		const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-		const metaWeatherUrl = `https://www.metaweather.com/api/location/search/?
-		lattlong=${location[0]},${location[1]}`;
-
-		fetch(corsProxy + metaWeatherUrl).then(response => response.json())
-		.then(data => {
-		   if(data && data.length > 0) {
-		      const woeid = data[0].woeid;
-
-		      return fetch(corsProxy + 
-		        `https://www.metaweather.com/api/location/${woeid}/`)
-		    } else {
-		      throw new Error('No weather infomation found for the location.');
-		    }
-		})
-		.then(response => response.json())
-		.then(data => {
-		 const weatherDiv = document.getElementById('weather');
-		 const todayWeather = data.consolidated_weather[0];
-		 weatherDiv.innerHTML = 
-		     `
-		     <h3>Current Weather</h3>
-		     <p>Temperature: ${todayWeather.the_temp.toFixed(1)}&degC</p>
-		        <p>Weather: ${todayWeather.weather_state_name}</p>
-		                                 	`;
-		})
-		.catch(error => console.error('Error fetching weather data:',error));
-	}
-});
+// Fetch and display weather data
+getWeather();
 
