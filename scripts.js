@@ -1,3 +1,10 @@
+//Home page navigation menu
+function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('show');
+}
+
+
 //Smooth scrolling
 function scrollToSection(id) {
 	const section = document.getElementById(id);
