@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ZulaUga</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ZulaUga</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="manifest" href="/manifest.json">
     <script src="https://kit.fontawesome.com/16a8209631.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="IMG\logo2.png">
+            <img src="IMG/logo2.png" alt="Logo">
         </div>
     </header>
     <section class="hero">
-    	<img src="IMG\Green Modern Dream Destination Instagram Post.png">
+        <img src="IMG/Green Modern Dream Destination Instagram Post.png" alt="Hero Image">
         <a href="booking.html" class="cta-button">Book Your Trip Now</a>
     </section>
 
@@ -30,19 +30,19 @@
     <section class="highlights">
         <div class="highlight-cards">
             <div class="highlight-card">
-               <img src="IMG\fort-portal-2138189_1280.jpg">
+               <img src="IMG/fort-portal-2138189_1280.jpg" alt="Landscapes">
                <h3>Landscapes</h3>
                <p>Explore the breathtaking landscapes and scenic views.</p>
                <a href="natural.html" class="highlight-button">Learn More</a> 
             </div>
             <div class="highlight-card">
-               <img src="IMG\hut-2108858_1280.jpg">
+               <img src="IMG/hut-2108858_1280.jpg" alt="Cultural Sites">
                <h3>Cultural Sites</h3>
                <p>Discover the rich cultural heritage and historical sites.</p>
                <a href="cultural.html" class="highlight-button">Learn More</a> 
             </div>
             <div class="highlight-card">
-               <img src="IMG\kagyana-2955466_1280.jpg">
+               <img src="IMG/kagyana-2955466_1280.jpg" alt="Foods">
                <h3>Foods</h3>
                <p>Experience the vibrant local markets and delicious cuisine.</p>
                <a href="Local-cuisines.html" class="highlight-button">Learn More</a> 
@@ -51,53 +51,52 @@
     </section>
 
     <section class="testimonials">
-        <h2>What Our Vistors Say</h2>
+        <h2>What Our Visitors Say</h2>
         <div id="testimonialsContainer" class="testimonials-container">
             <!--Testimonials will be injected here by JavaScript-->
             <div class="testimonial-cards">
-            <div class="testimonial-card">
-                <img src="IMG\rocks-6351404_1280.jpg">
-                <blockquote>
-                    "Itinda falls is a paradise! The views are 
-                    stunning and the people are so friendly.
-                    Can't wait to come back!"
-                </blockquote>
-                <p>Itinda falls</p>
+                <div class="testimonial-card">
+                    <img src="IMG/rocks-6351404_1280.jpg" alt="Itinda falls">
+                    <blockquote>
+                        "Itinda falls is a paradise! The views are 
+                        stunning and the people are so friendly.
+                        Can't wait to come back!"
+                    </blockquote>
+                    <p>Itinda falls</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="IMG/kazinga-channel-6107470_1280.jpg" alt="Kazinga Channel">
+                    <blockquote>
+                        "I had the best vacation ever. The attractions
+                        were incredible,and the food was out of this
+                        world."
+                    </blockquote>
+                    <p>Kazinga Channel</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="IMG/murchison-falls-2298591_1280.jpg" alt="Murchison falls">
+                    <blockquote>
+                        "An unforgettable experience! The local culture is 
+                        rich and the natural beauty is breathtaking." 
+                    </blockquote>
+                    <p>Murchison falls</p>
+                </div>
             </div>
-            <div class="testimonial-card">
-                <img src="IMG\kazinga-channel-6107470_1280.jpg">
-                <blockquote>
-                    "I had the best vacation ever. The attractions
-                    were incredible,and the food was out of this
-                    world."
-                </blockquote>
-                <p>Kazinga Channel</p>
-            </div>
-            <div class="testimonial-card">
-                <img src="IMG\murchison-falls-2298591_1280.jpg">
-                <blockquote>
-                    "An unforgettable experience! The local culture is 
-                    rich and the natural beauty is breathtaking." 
-                </blockquote>
-                <p>Murchison falls</p>
-            </div>
-        </div>
         </div>
     </section>
- 
+
     <section class="submit-testimonial">
         <button id="goToTestimonialForm" class="submit-button1">Submit your Testimonial</button>
     </section>
-    
-   
+
     <script>
-        document.getElementById('goToTestimonialForm').addEventListener('click',function() {
-            window.location.href='testimonial-form.html';
+        document.getElementById('goToTestimonialForm').addEventListener('click', function() {
+            window.location.href = 'testimonial-form.html';
         });
     </script>
 
     <nav class="bottom-nav">
-      <a href="index.html" cla ss="nav-item">
+        <a href="index.html" class="nav-item">
             <div class="icon"><i class="fas fa-home"></i></div>
             <span class="text">Home</span>
         </a>
@@ -109,7 +108,7 @@
             <div class="icon"><i class="fas fa-images"></i></div>
             <span class="text">Gallery</span>
         </a>
-        <a href="map.html class="nav-item">
+        <a href="map.html" class="nav-item">
             <div class="icon"><i class="fas fa-map-marked-alt"></i></div>
             <span class="text">Map/Weather</span>
         </a>
@@ -118,18 +117,15 @@
     <script src="js/scripts.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load',() => {
+            window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/service-worker.js')
                 .then(registration => {
-                    console.log('ServiceWorker registration successful with scope:',registration.scope);
+                    console.log('ServiceWorker registration successful with scope:', registration.scope);
                 }, error => {
                     console.log('ServiceWorker registration failed:', error);
                 });
             });
         }
     </script>
-
-    <script defer src="scripts.js"></script>
 </body>
 </html>
-    
