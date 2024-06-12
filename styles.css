@@ -384,3 +384,71 @@ button[type="submit"]:hover {
     display: inline-block;
     padding: 10px 15px;
     font-size: 16px
+
+/* Testimonials Section */
+.testimonials {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.testimonial-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.testimonial-card blockquote {
+    font-style: italic;
+    color: #555;
+    margin: 15px 0;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: #777;
+    margin-top: 10px;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+.submit-testimonial {
+    display: flex; /* Added display property */
+    justify-content: center;
+    text-align: center;
+}
+
+.submit-button1 {
+    background-color: #0056b3; /* Darker blue for better contrast */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button1:hover {
+    background-color: #003f88; /* Darker blue for hover state */
+}
