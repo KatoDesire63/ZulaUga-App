@@ -1,4 +1,4 @@
-/* General Styles */
+   /* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -111,7 +111,7 @@ header {
     margin: 50px;
     font-size: 20px;
     color: #fff;
-    background-color: #0056b3; /*Darker blue for better contrast*/
+    background-color: #0056b3; /* Darker blue for better contrast */
     border: none;
     border-radius: 5px;
     text-decoration: none;
@@ -120,10 +120,10 @@ header {
 }
 
 .cta-button:hover {
-    background-color: #003f88; /*Darker blue for hover state */
+    background-color: #003f88; /* Darker blue for hover state */
 }
 
-/*Bookings */
+/* Bookings */
 header img {
     height: 50px;
 }
@@ -288,7 +288,8 @@ textarea {
     padding: 15px 30px;
     font-size: 16px;
     color: #fff;
-    background-color: #0056b3; /*Darker blue for better contrast*/       border: none;
+    background-color: #0056b3; /* Darker blue for better contrast */
+    border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -296,7 +297,7 @@ textarea {
 }
 
 .submit-button:hover {
-    background-color: #003f88; /*Darker blue for hover state */
+    background-color: #003f88; /* Darker blue for hover state */
 }
 
 /* Payment Details */
@@ -331,7 +332,8 @@ input[type="text"] {
 
 button[type="submit"] {
     padding: 10px 20px;
-    background-color:  #0056b3; /*Darker blue for better contrast*/   color: #fff;
+    background-color: #0056b3; /* Darker blue for better contrast */
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -339,7 +341,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #003f88; /*Darker blue for hover state */
+    background-color: #003f88; /* Darker blue for hover state */
 }
 
 .highlights {
@@ -381,361 +383,4 @@ button[type="submit"]:hover {
 .highlight-card .highlight-button {
     display: inline-block;
     padding: 10px 15px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #0056b3; /*Darker blue for better contrast*/    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.highlight-card .highlight-button:hover {
-    background-color: #003f88; /*Darker blue for hover state */
-
-.highlight-card:hover {
-    transform: translateY(-10px);
-}
-
-/*Attractions*/
-.attractions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 40px 20px;
-}
-
-.attraction {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    max-width: 300px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.attraction:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.attraction img {
-    border-radius: 10px 10px 0 0;
-    max-width: 100%;
-    height: auto;
-}
-
-.attraction h2 {
-    font-size: 24px;
-    margin: 10px 0;
-}
-
-.attraction p {
-    padding: 0 20px 20px;
-}
-
-.attraction .location {
-    font-style: italic;
-    color: #555;
-}
-
-@media (max-width: 768px) {
-    .attractions {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .attraction {
-        max-width: 90%;
-    }
-}
-
-
-/* Gallery Page */
-.gallery {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #f4f4f4;
-}
-
-.gallery h2 {
-    font-size: 2.5em;
-    margin-bottom: 30px;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.gallery-item {
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.gallery-item img:hover {
-    transform: scale(1.1);
-}
-
-
-@media screen and (max-width: 600px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-    }
-
-    .nav {
-        margin-top: 500px; /* Add space between logo and nav on mobile */
-    }
-
-    nav ul {
-        display: flex;
-        align-items: center;
-    }
-
-    nav li {
-        display: block;
-        margin-bottom: 100px;
-    }
-
-    .hero {
-        height: 300px;
-        width: 100%;
-    }
-
-    .hero img {
-        height: 300px;
-        width: 100%;
-    }
-
-    .logo {
-        margin-bottom: 10px;
-    }
-
-    .testimonial-section img {
-        width: 80px;
-        height: 80px;
-    }
-}
-
-/* Testimonials Section */
-.testimonials {
-    padding: 50px 20px;
-    background-color: #ffffff;
-    text-align: center;
-}
-
-.testimonial-cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.testimonial-card {
-    background: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.testimonial-card img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-}
-
-.testimonial-card blockquote {
-    font-style: italic;
-    color: #555;
-    margin: 15px 0;
-}
-
-.testimonial-card p {
-    font-style: italic;
-    color: #777;
-    margin-top: 10px;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-10px);
-}
-
-.submit-testimonial {
-    display: flex; /* Added display property */
-    justify-content: center;
-    text-align: center;
-}
-
-.submit-button1 {
-    background-color: #0056b3; /* Darker blue for better contrast */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.submit-button1:hover {
-    background-color: #003f88; /* Darker blue for hover state */
-}
-
-
-/* Map Container Styles */
-#map-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#map, #weather {
-    height: 500px;
-    width: 90%;
-    max-width: 1000px;
-    border: 2px solid #333;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
-    animation: fadeIn 2s ease-in-out;
-}
-
-#weather h3 {
-    margin-top: 0;
-}
-
-#weather p {
-    margin: 0.5rem 0;
-    font-size: 1.2rem;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    main {
-        padding: 1rem;
-    }
-
-    #map {
-        height: 300px;
-    }
-
-    header nav {
-        flex-direction: column;
-    }
-
-    header nav a {
-        padding: 0.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    main {
-        padding: 0.5rem;
-    }
-
-    #map {
-        height: 200px;
-    }
-
-    header nav a {
-        padding: 0.25rem;
-    }
-}
-
-/* Local Cuisines Page */
-.cuisine-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.cuisine-item {
-    background: #fafafa;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 15px;
-    padding: 15px;
-    max-width: 250px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeInUp 1s ease-in-out;
-}
-
-.cuisine-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.cuisine-item img {
-    width: 100%;
-    border-radius: 8px 8px 0 0;
-    margin-bottom: 10px;
-}
-
-.cuisine-item h3 {
-    color: #444;
-    margin-bottom: 10px;
-}
-
-.cuisine-item p {
-    color: #666;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Footer Section */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-}
-   
-
- 
+    font-size: 16px
