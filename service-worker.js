@@ -1,29 +1,47 @@
-const cacheName  'zulauga-app-v1';
+const cacheName = 'zulauga-app-v1';
 const assets = [
-	'/',
-	'/index.html',
-	'/attractions.html',
-	'/gallery.html',
-	'/book-now.html',
-	'/css/styles.css',
-	'/js/scripts.js',
-	'/images',
+    '/',
+    '/index.html',
+    '/attractions.html',
+    '/gallery.html',
+    '/booking.html',
+    '/styles.css',
+    '/scripts.js',
+    '/images'
 ];
 
 self.addEventListener('install', event => {
-	event.waitUnit(
-		caches.open(cacheName)
-		.then(cache => {
-			return cache.addAll(assets);
-		})
+    event.waitUntil(
+        caches.open(cacheName)
+            .then(cache => {
+                return cache.addAll(assets);
+            })
+            .catch(error => {
+                console.error('Failed to cache assets', error);
+            })
     );
 });
 
-self.addEventListener('fetch',event => {
-	event.respondWith(
-		caches.match(event.request)
-		.then(response => {
-			return response || fetch(event.request);
-		})
-	);
+self.addEventListener('fetch', event => {
+    event.respondWith(
+        caches.match(event.request)
+            .then(response => {
+                return response || fetch(event.request);
+            })
+    );
+});
+
+self.addEventListener('activate', event => {
+    const cacheWhitelist = [cacheName];
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.map(cache => {
+                    if (!cacheWhitelist.includes(cache)) {
+                        return caches.delete(cache);
+                    }
+                })
+            );
+        })
+    );
 });
