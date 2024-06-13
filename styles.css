@@ -392,6 +392,11 @@ button[type="submit"]:hover {
     text-align: center;
 }
 
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .testimonial-cards {
     display: flex;
     justify-content: center;
@@ -433,13 +438,11 @@ button[type="submit"]:hover {
 }
 
 .submit-testimonial {
-    display: flex; /* Added display property */
-    justify-content: center;
-    text-align: center;
+    margin-top: 20px; /* Add some space above the button */
 }
 
 .submit-button1 {
-    background-color: #0056b3; /* Darker blue for better contrast */
+    background-color: #0056b3;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -450,7 +453,7 @@ button[type="submit"]:hover {
 }
 
 .submit-button1:hover {
-    background-color: #003f88; /* Darker blue for hover state */
+    background-color: #003f88;
 }
 
 /* Map Container Styles */
