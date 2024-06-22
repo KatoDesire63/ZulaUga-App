@@ -1,52 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZulaUga</title>
     <meta name="description" content="Discover the rich cultural heritage of Uganda with our comprehensive guide to attractions, festivals, and local cuisine. Book your trip, explore galleries, and submit testimonials to share your experiences.">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="manifest" href="/manifest.json">
-    <script src="https://kit.fontawesome.com/16a8209631.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    position: relative;
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+
+.search-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.search-bar {
+    display: none;
+    margin-left: 10px;
+    flex-grow: 1;
+    position: absolute;
+    top: 10px;
+    right: 50px; /* Adjust as necessary for spacing from search icon */
+}
+
+.search-bar input {
+    padding: 5px;
+    font-size: 16px;
+    width: 80%;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover, .navbar a.active {
+    background-color: #333;
+}
+
+.material-icons {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.content {
+    padding: 20px;
+    margin-bottom: 60px; /* Space for the fixed navbar */
+}
+
+.logo img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    margin-bottom: 50px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+
+
+.highlights {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.highlight-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.highlight-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.highlight-card img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.highlight-card h3 {
+    margin: 20px 0 10px;
+}
+
+.highlight-card p {
+    color: #555;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.testimonial-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.testimonial-card blockquote {
+    font-style: italic;
+    color: #555;
+    margin: 15px 0;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: #777;
+    margin-top: 10px;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+.submit-testimonial {
+    margin-top: 20px; /* Add some space 
+"}
+
+    </style>
 </head>
 <body>
-    <header>
+    <div class="header">
         <div class="logo">
             <img src="IMG/logo2.png" alt="Logo">
         </div>
-    </header>
-    <section class="hero">
-        <img src="IMG/Green Modern Dream Destination Instagram Post.png" alt="Hero Image">
-        <a href="booking.html" class="cta-button">Book Your Trip Now</a>
-    </section>
-
-    <!--Search Bar-->
-    <section id="search-bar">
-        <div class="search-container">
-            <input type="text" placeholder="Search sites...">
-            <button onclick="searchSites()">Search</button>
+        <button id="searchButton" class="search-icon" onclick="toggleSearchBar()" aria-label="Toggle search bar">
+            <i class="fa fa-search"></i>
+        </button>
+        <div id="searchBar" class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search..." aria-label="Search input">
+            <button onclick="applyFilters()" aria-label="Apply filters">Filter</button>
         </div>
-    </section>
+    </div>
 
-    <section class="highlights">
+    <section class="hero">
+        <img src="IMG/Green Modern Dream Destination Instagram Post.png" alt="Hero Image"></section>
+     <section class="highlights">
         <div class="highlight-cards">
             <div class="highlight-card">
                <img src="IMG/fort-portal-2138189_1280.jpg" alt="Landscapes">
                <h3>Landscapes</h3>
                <p>Explore the breathtaking landscapes.</p>
-               <a href="natural.html" class="highlight-button">Explore Natural Wonders</a> 
+               <a href="natural.html" style=" text-decoration:none;">Explore Natural Wonders</a> 
             </div>
             <div class="highlight-card">
                <img src="IMG/hut-2108858_1280.jpg" alt="Cultural Sites">
                <h3>Cultural Sites</h3>
                <p>Discover the rich cultural heritage sites.</p>
-               <a href="cultural.html" class="highlight-button">Discover Cultural Attractions</a> 
+               <a href="cultural.html"style=" text-decoration:none;">Discover Cultural Attractions</a> 
+            </div>
+            <div class="highlight-card">
+               <img src="IMG/hut-2108858_1280.jpg" alt="Historical Sites">
+               <h3>Historical Sites</h3>
+               <p>Venture into the rich historical sites.</p>
+               <a href="historical.html" style=" text-decoration:none;">Find out Historical Attractions</a> 
             </div>
             <div class="highlight-card">
                <img src="IMG/kagyana-2955466_1280.jpg" alt="Foods">
                <h3>Foods</h3>
                <p>Experience the vibrant local delicious cuisine.</p>
-               <a href="Local-cuisines.html" class="highlight-button">Taste Local Cuisines</a> 
+               <a href="Local-cuisines.html" style=" text-decoration:none;">Taste Local Cuisines</a> 
             </div>
         </div>
     </section>
@@ -59,68 +265,103 @@
                 <div class="testimonial-card">
                     <img src="IMG/rocks-6351404_1280.jpg" alt="Itinda falls">
                     <blockquote>
-                        "Itinda falls is a paradise! The views are stunning and the people are so friendly. Can't wait to come back!"
+                        "Itinda falls is a paradise! The views are 
+                        stunning and the people are so friendly.
+                        Can't wait to come back!"
                     </blockquote>
                     <p>Itinda falls</p>
                 </div>
                 <div class="testimonial-card">
                     <img src="IMG/kazinga-channel-6107470_1280.jpg" alt="Kazinga Channel">
                     <blockquote>
-                        "I had the best vacation ever. The attractions were incredible, and the food was out of this world."
+                        "I had the best vacation ever. The attractions
+                        were incredible,and the food was out of this
+                        world."
                     </blockquote>
                     <p>Kazinga Channel</p>
                 </div>
                 <div class="testimonial-card">
-                    <img src="IMG/murchison-falls-2298591_1280.jpg" alt="Murchison falls">
+                    <img src="IMG/murchison-falls-;;2298591_1280.jpg" alt="Murchison falls">
                     <blockquote>
-                        "An unforgettable experience! The local culture is rich and the natural beauty is breathtaking." 
+                        "An unforgettable experience! The local culture is 
+                        rich and the natural beauty is breathtaking." 
                     </blockquote>
                     <p>Murchison falls</p>
                 </div>
             </div>
         </div>
-        <div class="submit-testimonial">
-            <button id="goToTestimonialForm" class="submit-button1">Submit your Testimonial</button>
-        </div>
     </section>
+    
+    <div class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="home.html" id="nav-home">
+            <span class="material-icons">home</span>
+            Home
+        </a>
+        <a href="gallery.html" id="nav-gallery">
+            <span class="material-icons">photo</span>
+            Gallery
+        </a>
+        <a href="map.html" id="nav-map">
+            <span class="material-icons">map</span>
+            Map
+        </a>
+        <a href="bookings.html" id="nav-bookings">
+            <span class="material-icons">book</span>
+            Bookings
+        </a>
+        <a href="posts.html" id="nav-posts">
+            <span class="material-icons">article</span>
+            Posts
+        </a>
+</div>
 
     <script>
-        document.getElementById('goToTestimonialForm').addEventListener('click', function() {
-            window.location.href = 'testimonial-form.html';
-        });
-    </script>
+        function toggleSearchBar() {
+            const searchBar = document.getElementById('searchBar');
+            searchBar.style.display = searchBar.style.display === 'flex' ? 'none' : 'flex';
+            document.getElementById('searchInput').focus();
+        }
 
-    <nav class="bottom-nav">
-        <a href="index.html" class="nav-item">
-            <div class="icon"><i class="fas fa-home"></i></div>
-            <span class="text">Home</span>
-        </a>
-        <a href="attractions.html" class="nav-item">
-            <div class="icon"><i class="fas fa-landmark"></i></div>
-            <span class="text">Attractions</span>
-        </a>
-        <a href="gallery.html" class="nav-item">
-            <div class="icon"><i class="fas fa-images"></i></div>
-            <span class="text">Gallery</span>
-        </a>
-        <a href="map.html" class="nav-item">
-            <div class="icon"><i class="fas fa-map-marked-alt"></i></div>
-            <span class="text">Map/Weather</span>
-        </a>
-    </nav>
-
-    <script src="js/scripts.js"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                .then(registration => {
-                    console.log('ServiceWorker registration successful with scope:', registration.scope);
-                }, error => {
-                    console.log('ServiceWorker registration failed:', error);
-                });
+        function applyFilters() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.item-list li');
+            items.forEach(item => {
+                if (item.textContent.toLowerCase().includes(searchInput)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
             });
         }
+
+        function handleNavClick(event) {
+            event.preventDefault();
+
+            // Remove 'active' class from all nav links
+            document.querySelectorAll('.navbar a').forEach(navLink => {
+                navLink.classList.remove('active');
+            });
+
+            // Add 'active' class to the clicked nav link
+            const target = event.currentTarget;
+            target.classList.add('active');
+
+            // Redirect to the respective page
+            const pageUrl = target.getAttribute('href');
+            window.location.href = pageUrl;
+        }
+
+        // Attach click event listeners to nav links
+        document.querySelectorAll('.navbar a').forEach(navLink => {
+            navLink.addEventListener('click', handleNavClick);
+        });
+
+        // Accessibility: Allow toggling search bar with Enter key
+        document.getElementById('searchButton').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                toggleSearchBar();
+            }
+        });
     </script>
 </body>
 </html>
