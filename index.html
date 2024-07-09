@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZulaUga</title>
+    <meta name="description" content="Discover the rich cultural heritage of Uganda with our comprehensive guide to attractions, festivals, and local cuisine. Book your trip, explore galleries, and submit testimonials to share your experiences.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            position: relative;
+            padding: 10px;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .search-icon {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-icon .material-icons {
+            font-size: 24px;
+        }
+
+        .search-bar {
+            display: none;
+            margin-right: 10px;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 200px;
+            box-sizing: border-box;
+        }
+
+
+        .menu-container {
+            position: relative;
+        }
+
+        .menu-dots {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            width: 24px;
+            justify-content: space-around;
+            height: 24px;
+        }
+
+        .menu-dots span {
+            display: block;
+            width: 4px;
+            height: 4px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        .menu-dropdown {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            min-width: 160px;
+            right: 0;
+        }
+
+        .menu-dropdown a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .menu-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .navbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 10px 0;
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover, .navbar a.active {
+            background-color: #333;
+            color: white;
+        }
+
+        .material-icons {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .content {
+            padding: 20px;
+            margin-bottom: 60px; /* Space for the fixed navbar */
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            margin-bottom: 50px;
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width:600px) {
+            .hero {
+                padding: 50px 20px;
+            }
+        }
+
+        .highlights {
+            padding: 50px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .highlight-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .highlight-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-card img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .highlight-card h3 {
+            margin: 20px 0 10px;
+        }
+
+        .highlight-card p {
+            color: #555;
+        }
+
+        .testimonials {
+            padding: 50px 20px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .testimonial-card {
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card blockquote {
+            font-style: italic;
+            color: #555;
+            margin: 15px 0;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #777;
+            margin-top: 10px;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .submit-testimonial {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="IMG/logo2.png" alt="Logo">
+        </div>
+        
+        <div class="search-container">
+            <div class="search-bar" id="searchBar">
+                <input type="text" placeholder="Search...">
+            </div>
+            <div class="search-icon" id="searchIcon" onclick="toggleSearch()">
+                <span class="material-icons">search</span>
+            </div>
+        </div>
+
+        
+        <div class="menu-container">
+            <div class="menu-dots" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="menu-dropdown" id="menuDropdown">
+                <a href="events-calendar.html">Events-Calendar</a>
+                <a href="currency.html">Currency Converter</a>
+                <a href="language.html">Language Translator</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero">
+        <img src="IMG\Green Modern Dream Destination Instagram Post.png" alt="Hero Image">
+    </section>
+    
+    <section class="highlights">
+        <div class="highlight-cards">
+            <div class="highlight-card">
+                <img src="IMG/fort-portal-2138189_1280.jpg" alt="Landscapes">
+                <h3>Landscapes</h3>
+                <p>Explore the breathtaking landscapes.</p>
+                <a href="natural.html" style="text-decoration:none;">Explore Natural Wonders</a> 
+            </div>
+            <div class="highlight-card">
+                <img src="IMG/hut-2108858_1280.jpg" alt="Cultural Sites">
+                <h3>Cultural Sites</h3>
+                <p>Discover the rich cultural heritage sites.</p>
+                <a href="cultural.html" style="text-decoration:none;">Discover Cultural Attractions</a> 
+            </div>
+            <div class="highlight-card">
+                <img src="IMG/kagyana-2955466_1280.jpg" alt="Foods">
+                <h3>Foods</h3>
+                <p>Experience the vibrant local delicious cuisine.</p>
+                <a href="Local-cuisines.html" style="text-decoration:none;">Taste Local Cuisines</a> 
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Our Visitors Say</h2>
+        <div id="testimonialsContainer" class="testimonials-container">
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <img src="IMG/rocks-6351404_1280.jpg" alt="Itinda falls">
+                    <blockquote>
+                        "Itinda falls is a paradise! The views are stunning and the people are so friendly. Can't wait to come back!"
+                    </blockquote>
+                    <p>Itinda falls</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="IMG/kazinga-channel-6107470_1280.jpg" alt="Kazinga Channel">
+                    <blockquote>
+                        "I had the best vacation ever. The attractions were incredible, and the food was out of this world."
+                    </blockquote>
+                    <p>Kazinga Channel</p>
+                </div>
+                <div class="testimonial-card">
+                    <img src="IMG/murchison-falls-2298591_1280.jpg" alt="Murchison falls">
+                    <blockquote>
+                        "An unforgettable experience! The local culture is rich and the natural beauty is breathtaking."
+                    </blockquote>
+                    <p>Murchison falls</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="home.html" id="nav-home">
+            <span class="material-icons">home</span>
+            Home
+        </a>
+        <a href="gallery.html" id="nav-gallery">
+            <span class="material-icons">photo</span>
+            Gallery
+        </a>
+        <a href="map.html" id="nav-map">
+            <span class="material-icons">map</span>
+            Map
+        </a>
+        <a href="bookings.html" id="nav-bookings">
+            <span class="material-icons">book</span>
+            Bookings
+        </a>
+        <a href="posts.html" id="nav-posts">
+            <span class="material-icons">article</span>
+            Post
+        </a>
+        <a href="business-post.html" id="nav-posts">
+            <span class="material-icons">shop</span>
+            Market
+        </a> 
+    </div>
+
+    <script>
+        function handleNavClick(event) {
+            event.preventDefault();
+            document.querySelectorAll('.navbar a').forEach(navLink => {
+                navLink.classList.remove('active');
+            });
+            const target = event.currentTarget;
+            target.classList.add('active');
+            const pageUrl = target.getAttribute('href');
+            window.location.href = pageUrl;
+        }
+
+        document.querySelectorAll('.navbar a').forEach(navLink => {
+            navLink.addEventListener('click', handleNavClick);
+        });
+
+        function toggleMenu() {
+            var dropdown = document.getElementById("menuDropdown");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+
+        function toggleSearch() {
+            var searchBar = document.getElementById("searchBar");
+            var searchIcon = document.getElementById("searchIcon");
+
+            // Toggle visibility
+            if (searchBar.style.display === "none" || searchBar.style.display === "") {
+                searchBar.style.display = "flex";
+                searchIcon.style.display = "none";
+            } else {
+                searchBar.style.display = "none";
+                searchIcon.style.display = "flex";
+            }
+        }
+
+        // Close menu dropdowns if clicked outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-dots') && !event.target.matches('.menu-dots span')) {
+                var dropdowns = document.getElementsByClassName("menu-dropdown");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
