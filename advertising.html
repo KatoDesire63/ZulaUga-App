@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Business Advertising</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Roboto', sans-serif;
+			background-color: #f0f0f0;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			max-width: 800px;
+			margin: 50px auto;
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+		h1 {
+			text-align: center;
+			font-size: 32px;
+			margin-bottom: 20px;
+		}
+
+		.section {
+			margin-bottom: 20px;
+		}
+
+		.section label {
+			font-weight: bold;
+			display: block;
+			margin-bottom: 5px;
+		}
+
+		.section p {
+			margin: 0;
+			font-size: 16px;
+		}
+		.services {
+			margin-bottom: 20px;
+		}
+		.services h2 {
+			margin-bottom: 20px;
+		}
+		.service {
+			padding: 10px;
+			background-color: #f9f9f9;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			margin-bottom: 10px;
+		}
+		.service h3 {
+			margin: 0 0 10px 0;
+		}
+		.service p {
+			margin: 0;
+		}
+		.social-media {
+			display: flex;
+			justify-content: space-around;
+			margin-top: 20px;
+		}
+		.social-media a {
+			text-decoration: none;
+			color: #007BFF;
+			font-size: 24px;
+		}
+	</style>
+</head>
+<body>
+   <div class="container" role="main">
+   	   <h1 id="business-name">Business Name</h1>
+
+   	   <div class="section">
+   	     <label>Category:</label>
+   	     <p id="category">Category</p>
+       </div>
+
+       <div class="section">
+       	  <label id="description">Description</label>
+       </div>
+
+       <div class="section">
+       	  <label id="location">Location</label>
+       </div>
+
+       <div class="section">
+       	   <label>Contact Information:</label>
+       	   <p id="phone">Phone</p>
+       	   <p id="email">Email</p>
+       	   <p id="website">Website</p>
+       </div>
+
+       <div class="section">
+       	   <label>Business Hours:</label>
+       	   <p id="hours">Hours</p>
+       </div>
+
+       <div class="section">
+       	  <label>Photos:</label>
+       	  <div id="photos"></div>
+       </div>
+
+       <div class="services">
+       	  <h2>Services Offered:</h2>
+       	  <div id="services"></div>
+       </div>
+
+       <div class="social-media">
+       	   <a href="#">Facebool</a>
+       	   <a href="#">Instagram</a>
+       	   <a href="#">Twitter</a>
+       </div>
+   </div>
+
+   <script>
+   	   const urlParams = new URLSearchParams(window.location.search);
+   	   const formKey = urlParams.get('key');
+
+   	   fetch(`http://localhost:3000/get-form/${formKey}`)
+   	        .then(response => response.json())
+   	        .then(data => {
+   	        	document.getElementById('business-name').innerText = data.businessName;
+   	        	document.getElementById('description').innerText = data.description;
+   	        	document.getElementById('location').innerText = data.location;
+   	        	document.getElementById('phone').innerText = data.phone;
+   	        	document.getElementById('email').innerText = data.email;
+   	        	document.getElementById('website').innerText = data.website;
+   	        	document.getElementById('hours').innerText = data.hours;
+
+   	        	const photosContainer = document.getElementById('photos');
+   	        	data.photos.forEach(photo => {
+   	        		const img = document.createElement('img');
+   	        		img.src = photo;
+   	        		img.alt = 'Photo';
+   	        		img.style.width = '100px';
+   	        		img.style.height = '100px';
+   	        		img.style.argin = '10px';
+   	        		img.style.objectFit = 'cover';
+
+   	        		photosContainer.appendChild(img);
+   	        	});
+
+   	        	const servicesContainer = document.getElementById('services');
+   	        	data.services.forEach(service => {
+   	        		const serviceDiv = document.createElement('div');
+
+   	        		serviceDiv.classList.add('service');
+   	        		serviceDiv.innerHTML = `<h3>${service.name}</h3>
+   	        		                        <p>${service.descriotion}</p>
+   	        		                        <p>${service.price}</p>
+   	        		                                               `;
+   	        		servicesContainer.appendChild(serviceDiv);
+   	        	});
+
+   	        	document.getElementById('facebook').href = data.facebook;
+   	        	document.getElementById('instagram').href = data.instagram;
+   	        	document.getElementById('twitter').href = data.twitter;
+   	        })
+   	        .catch(error => console.error('Error:',error));
+   </script>
+   
+</body>
+</html>

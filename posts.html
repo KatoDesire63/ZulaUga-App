@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Testimonial Submission</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            position: relative;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+
+        .navbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 10px 0;
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover, .navbar a.active {
+            background-color: #333;
+        }
+
+        .material-icons {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .content {
+            padding: 20px;
+            margin-bottom: 60px; /* Space for the fixed navbar */
+        }
+
+        body.form-body {
+            background-color: #f4f4f9;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-color: #f4f4f9; }
+            100% { background-color: #e1e8f0; }
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .submit-testimonial {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .submit-testimonial form {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: formFadeIn 1.5s forwards 0.5s;
+        }
+
+        @keyframes formFadeIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .submit-testimonial .form-group {
+            margin-bottom: 15px;
+        }
+
+        .submit-testimonial .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .submit-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        .submit-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body class="form-body">
+    <section class="submit-testimonial">
+        <h2>Submit Your Testimonial</h2>
+        <form id="testimonialForm">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="photo">Your Photo URL:</label>
+                <input type="url" name="photo" id="photo" required>
+            </div>
+            <div class="form-group">
+                <label for="quote">Your Testimonial:</label>
+                <textarea id="quote" name="quote" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </section>
+    <div class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="home.html" id="nav-home">
+            <span class="material-icons">home</span>
+            Home
+        </a>
+        <a href="gallery.html" id="nav-gallery">
+            <span class="material-icons">photo</span>
+            Gallery
+        </a>
+        <a href="map.html" id="nav-map">
+            <span class="material-icons">map</span>
+            Map
+        </a>
+        <a href="bookings.html" id="nav-bookings">
+            <span class="material-icons">book</span>
+            Bookings
+        </a>
+        <a href="posts.html" id="nav-posts">
+            <span class="material-icons">article</span>
+            Posts
+        </a>
+        <a href="business-post.html" id="nav-posts">
+            <span class="material-icons">shop</span>
+            Market
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('testimonialForm').addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(this);
+                const data = {
+                    name: formData.get('name'),
+                    photo: formData.get('photo'),
+                    quote: formData.get('quote')
+                };
+
+                try {
+                    const response = await fetch('http://localhost:3000/api/testimonials', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+                    alert(result.message);
+                    if (response.ok) {
+                        window.location.href = 'index.html';
+                    }
+                } catch (error) {
+                    console.error('Error submitting testimonial:', error);
+                    alert('An error occurred while submitting your testimonial. Please try again.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

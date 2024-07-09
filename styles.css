@@ -1,0 +1,63 @@
+.logo img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    margin-bottom: 50px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+
+
+.highlights {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.highlight-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.highlight-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.highlight-card img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.highlight-card h3 {
+    margin: 20px 0 10px;
+}
+
+.highlight-card p {
+    color: #555;
+}

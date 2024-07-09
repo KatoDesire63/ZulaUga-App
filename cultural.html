@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css\styles.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <style>
+      .navbar {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          background-color: #f9f9f9;
+          border-top: 1px solid #ddd;
+          box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar a {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          flex: 1;
+          padding: 10px 0;
+          text-align: center;
+          text-decoration: none;
+          color: #000;
+          font-size: 14px;
+          transition: background-color 0.3s ease;
+      }
+
+      .navbar a:hover, .navbar a.active {
+          background-color: #333;
+      }
+
+      .material-icons {
+          font-size: 24px;
+          margin-bottom: 5px;
+      }
+
+      .content {
+          padding: 20px;
+          margin-bottom: 60px; /* Space for the fixed navbar */
+      }
+      
+   </style>
+</head>
+<body>
+
+   <main>
+   	<section class="hero" style="background-image: url('IMG/bird-7718653_1280.jpg');">
+   		<h1>Cultural Attractions</h1>
+   		<p>Immerse yourself in the rich cultural heritage of Uganda.</p>
+   	</section>
+
+   	<section class="filters">
+   		<button class="filter-button" onclick="scrollToSection('museums')">Museums</button>
+   		<button class="filter-button" onclick="scrollToSection('heritage-sites')">Heritage Sites</button>
+   		<button class="filter-button" onclick="scrollToSection('festivals')">Festivals</button>
+   	</section>
+
+   	<section id="museums" class="'subcategory">
+         <h2>Ugandan Museum</h2>
+         <div class="attractions">
+            <div class="attraction">
+               <img src="IMG\uganda-1758988_1280.png">
+               <h3>The Ugandan Museum</h3>
+               <p>
+                  It was established in 1908,making it the oldest museum
+                  in East Africa and serves as a repository of Uganda's
+                  rich cultural heritage.
+               </p>
+               <p class="location">
+                  <strong>Location:</strong>
+                  Kira Road in the Kamwokya area of Kampala.
+               </p>
+            </div>
+         </div>
+   	</section>
+
+   	<section id="heritage-sites" class="subcategory">
+   		<h2>Heritage Sites</h2>
+   		<div class="attractions">
+   			<div class="attraction">
+   				<img src="IMG\kasubi-tombs.jpg">
+   				<h3>Kasubi Tombs</h3>
+   				<p>
+                  The Kasubi Tombs are a UNESCO World Heritage Site
+                  and serve as the burial grounds for he kings(Kabakas)
+                  of Buganda.The site is renowned for its traditional
+                  Ganda architecture,featuring grass-thatched huts and
+                  intricate woodwork.It is a vital cultural symbol of
+                  the Buganda kingdom and a palce of spiritual significance.
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>
+                  Kampala.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\namugongo.jpg">
+   				<h3>Namugongo Martyrs Shrine</h3>
+   				<p>
+                  This shrine commemorates the 22 Ugandan Christian
+                  martyrs who were executed on the orders of Kabaka
+                  Mwanga II between 1885 and 1887 for thier refusal to
+                  renounce Christianity.The shrine is a major pilgrimage
+                  site,especially on June 3rd,Martyrs' Day,attracting 
+                  thousands of visitors annually.        
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>
+                     Namugongo,near Kampala.
+               </p>
+   			</div>
+   		</div>
+   	</section>
+
+   	
+    <section id="festivals" class="subcategory">
+   		<h2>Festivals</h2>
+   		<div class="attractions">
+   			<div class="attraction">
+   				<img src="IMG\nyege nyege.jpg">
+   				<h3>Nyege Nyege Festival</h3>
+   				<p>
+                 East Africa's largest music festival featuring electronic
+                 music,traditional performances,and artists from across
+                 Africa.It's known for its vibrant atmosphere and diverse
+                 muscial acts.        
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>
+                  Nile Discovery Beach,Jinja
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\kampala-festival.jpg">
+   				<h3>Kampala City Festival</h3>
+   				<p>
+                  A celebration of Kampala's cultural diversity with parades,
+                  music,dance,and food.It's one of the city's largest annual
+                  events,attracting a wide audience.
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>
+                  Various locations across Kampala.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\tourism-4169709_1280.jpg">
+   				<h3>Karamoja Cultural Festival</h3>
+   				<p>
+                  Celebrates the culture of the Karimojong people and neighboring
+                  tribes from Kenya,South Sudan,and Ethiopia.The festival
+                  includes traditional dances,music,and cultural displays.
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>
+                  Karamoja region
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\imbalu.jpg">
+   				<h3>Imbalu Festival</h3>
+   				<p>
+                  This festival marks the circumcision ceremony of the Bagisu
+                  people,featuring traditional songs,dances,and rituals that
+                  signify the transition of boys into manhood.
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>
+                     Bugisu region
+               </p>
+   			</div>
+            <div class="attraction">
+               <img src="IMG\rolex.jpg">
+               <h3>Rolex Festival</h3>
+               <p>
+                  Celebrates the popular Ugandan street food,the Rolex
+                  (chapati rolled with eggs).The festival showcases 
+                  different styles of preparing the dish,along with
+                  entertainment and games.
+               </p>
+               <p class="location">
+                  <strong>Location:</strong>
+                  Kampala
+               </p>
+            </div>
+            <div class="attraction">
+               <img src="IMG\ekyooto.jpg">
+               <h3>Ekyooto Cultural Festival</h3>
+               <p>
+                  A three-day international cultural festival celebrating
+                  Uganda's diverse cultures through music,dance,cuisine,
+                  fashion,and storytelling.
+               </p>
+               <p class="location">
+                  <strong>Location:</strong>
+                     Kampala
+               </p>
+            </div>
+            <div class="attraction">
+               <img src="IMG\tourism-expo.jpg">
+               <h3>Pearl of Africa Tourism Expo</h3>
+               <p>
+                  A major tourism trade fair that includes cultural
+                  performances and exhibitions,promoting Uganda as
+                  a tourist destination.
+               </p>
+               <p class="location">
+                  <strong>Location:</strong>
+                     Kampala
+               </p>
+            </div>
+   		</div>
+   	</section>
+
+      <div class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="home.html" id="nav-home">
+            <span class="material-icons">home</span>
+            Home
+        </a>
+        <a href="gallery.html" id="nav-gallery">
+            <span class="material-icons">photo</span>
+            Gallery
+        </a>
+        <a href="map.html" id="nav-map">
+            <span class="material-icons">map</span>
+            Map
+        </a>
+        <a href="bookings.html" id="nav-bookings">
+            <span class="material-icons">book</span>
+            Bookings
+        </a>
+        <a href="posts.html" id="nav-posts">
+          <span class="material-icons">article</span>
+           Post
+        </a>
+        <a href="business-post.html" id="nav-posts">
+          <span class="material-icons">shop</span>
+           Market
+        </a> 
+	
+   </main>
+
+   <script src="js/scripts.js">
+      function handleNavClick(event) {
+            event.preventDefault();
+            document.querySelectorAll('.navbar a').forEach(navLink => {
+                navLink.classList.remove('active');
+            });
+            const target = event.currentTarget;
+            target.classList.add('active');
+            const pageUrl = target.getAttribute('href');
+            window.location.href = pageUrl;
+        }
+
+        document.querySelectorAll('.navbar a').forEach(navLink => {
+            navLink.addEventListener('click', handleNavClick);
+        });
+
+   </script>
+</body>
+</html>

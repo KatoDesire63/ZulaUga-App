@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gallery</title>
+    <meta name="description" content="Explore our gallery showcasing stunning images of wildlife, landscapes, and adventures from our trips.">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+   <style>
+      body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover, .navbar a.active {
+    background-color: #333;
+}
+
+.material-icons {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.content {
+    padding: 20px;
+    margin-bottom: 60px; /* Space for the fixed navbar */
+}
+
+.gallery {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.gallery h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.1);
+}
+   </style>
+</head>
+<body>
+    <header>
+        <section class="gallery">
+            <h2>Our Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="IMG/bird-7718653_1280.jpg" alt="Bird">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\africa-3928911_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\africa-3936371_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\africa-5365330_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\beach-293826_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\cascade-7152189_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\chilling-lion.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\coast-8308438_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\cow-8507467_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\cultural.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\giraffe-4459137_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\giraffe-7708376_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\hippo-4843819_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\jungle-2108882_1280.jpg">
+                </div>
+                 <div class="gallery-item">
+                    <img src="IMG\kazinga-channel-6107470_1280.jpg">
+                </div>
+                 <div class="gallery-item">
+                    <img src="IMG\lake-192991_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\mammal-3227679_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\mammal-3230968_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\sunset-2428782_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\nile-5365318_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\waterfall-7953344_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG\wild-geese-3379677_1280.jpg">
+                </div>
+                 <div class="gallery-item">
+                    <img src="IMG\IMG_20240220_132957.jpg">
+                </div>
+                 <div class="gallery-item">
+                    <img src="IMG\IMG_20240602_160724.jpg">
+                </div>
+                 <div class="gallery-item">
+                    <img src="IMG\jacksons-hartebeest-8329320_1280.jpg">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/crater-lake-2098721_1280.jpg" alt="Crater Lake">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/defassa-1536876_1280.jpg" alt="Defassa">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/elephants-261672_1280.jpg" alt="Elephants">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/elephants-1535883_1280.jpg" alt="Elephants">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/crocodile-1536358_1280.jpg" alt="Crocodile">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/queen-elizabeth-national-park-6107499_1280.jpg" alt="Queen Elizabeth National Park">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/rocks-6351404_1280.jpg" alt="Rocks">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/rhino-7716551_1280.jpg" alt="Rhino">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/pink-pelican-1536362_1280.jpg" alt="Pink Pelican">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/summer-4761674_1280.jpg" alt="Summer Landscape">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/northern-4490391_1280.jpg" alt="Northern Landscape">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/uganda-2575828_1280.jpg" alt="Uganda">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/uganda-7146882_1280.jpg" alt="Uganda">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/river-nile-2904342_1280.jpg" alt="River Nile">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/waterbuck-7703638_1280.jpg" alt="Waterbuck">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/white-water-rafting-354505_1280.jpg" alt="White Water Rafting">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/wildlife-3147651_1280.jpg" alt="Wildlife">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/zebra-1377240_1280.jpg" alt="Zebra">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/zen-5760687_1280.jpg" alt="Zen">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/uganda-7146886_1280.jpg" alt="Uganda Landscape">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG/saddle-billed-stork-4998090_1280.jpg" alt="Saddle-billed Stork">
+                </div>
+            </div>
+        </section>
+        <div class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="home.html" id="nav-home">
+            <span class="material-icons">home</span>
+            Home
+        </a>
+        <a href="gallery.html" id="nav-gallery">
+            <span class="material-icons">photo</span>
+            Gallery
+        </a>
+        <a href="map.html" id="nav-map">
+            <span class="material-icons">map</span>
+            Map
+        </a>
+        <a href="bookings.html" id="nav-bookings">
+            <span class="material-icons">book</span>
+            Bookings
+        </a>
+        <a href="posts.html" id="nav-posts">
+            <span class="material-icons">article</span>
+            Posts
+        </a>
+        <a href="business-post.html" id="nav-posts">
+          <span class="material-icons">shop</span>
+           Market
+        </a>
+    </div>      
+</body>
+</html>

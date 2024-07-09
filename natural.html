@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="E:\ZulaUga\css\styles.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <style>
+      .navbar {
+         position: fixed;
+         bottom: 0;
+         width: 100%;
+         display: flex;
+         justify-content: space-around;
+         background-color: #f9f9f9;
+         border-top: 1px solid #ddd;
+         box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar a {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         flex: 1;
+         padding: 10px 0;
+         text-align: center;
+         text-decoration: none;
+         color: #000;
+         font-size: 14px;
+         transition: background-color 0.3s ease;
+      }
+
+      .navbar a:hover,
+      .navbar a.active {
+         background-color: #333;
+      }
+
+      .material-icons {
+         font-size: 24px;
+         margin-bottom: 5px;
+      }
+
+      .content {
+         padding: 20px;
+         margin-bottom: 60px; /* Space for the fixed navbar */
+      }
+
+   </style>
+</head>
+<body>
+
+   <main>
+   	<section class="hero" style="background-image: url('IMG/murchison-falls-2298591_1280.jpg');">
+   		<h1>Natural Attractions</h1>
+   		<p>Experience the stunning beauty of our natural attractions.</p>
+   	</section>
+
+   	<section class="filters">
+   		<button class="filter-button" onclick="scrollToSection('mountains')">Mountains</button>
+   		<button class="filter-button" onclick="scrollToSection('beaches')">Beaches</button>
+   		<button class="filter-button" onclick="scrollToSection('forests')">Forests</button>
+   		<button class="filter-button" onclick="scrollToSection('parks')">Parks</button>
+   		<button class="filter-button" onclick="scrollToSection('lakes')">Lakes</button>
+   		<button class="filter-button" onclick="scrollToSection('waterfalls')">Waterfalls/Rivers</button>
+   	</section>
+
+   	<section id="mountains" class="'subcategory">
+   		<h2>Mountains</h2>
+   		<div class="attractions">
+   			<div class="attraction">
+   				<img src="IMG\rwenzori-4341914_1280.jpg">
+   				<h3>Rwenzori Mountains</h3>
+   				<p>
+                  Also known as the "Mountains of the Moon",the
+                  Rwenzori Mountains are a UNESCO World Heritage Site.
+                  They are renowed for their stunning alpine landscapes,
+                  glaciers,and diverse ecosystems.
+                  The range is part of the Rwenzori Mountains National Park.
+               </p>
+               <ul>Key Peaks
+                  <li>Margherita Peak(5,109 meters</li>
+                  <li>Mount Speke(4,890 meters)</li>
+                  <li>Mount Baker(4,844 meters)</li>
+               </ul>
+   				<p class="location">
+                  Location:Western Uganda, along the border with the
+                  Democratic Republic of Congo. 
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="E:\ZulaUga\IMG\sipi-falls-4761660_1280.jpg">
+   				<h3>Mount Elgon</h3>
+   				<p>
+                 An extinct shield volcano with one of the largest calderas
+                 in the world. It is rich in biodiversity and home to Mount
+                 Elgon National Park.        
+               </p>
+               <p>Key Peak: Wagagai(4,321 meters)</p>
+   				<p class="location">
+                  Location: Eastern Uganda,on the border with Kenya.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\sausage-tree-3936362_1280.jpg">
+   				<h3>Virunga Mountains</h3>
+   				<p>
+                 A chain of volcanic mountains famous for its population
+                 of mountain gorillas, within Mgahinga Gorilla National Park. 
+               </p>
+               <ul>Key Peaks
+                  <li>Mount Muhavura(4,127 meters)</li>
+                  <li>Mount Mgahinga(3,474 meters)</li>
+                  <li>Mount Sabinyo(3,669 meters)</li>
+               </ul>
+   				<p class="location">
+                   Location: Southwestern Uganda, along the borders with
+                   Rwanda and the Democratic Republic of Congo.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\IMG_20240602_132915.jpg">
+   				<h3>Mount Moroto</h3>
+   				<p>
+                  Part of the Eastern Rift Valley, offering rugged terrain
+                  and significant to the local Tepeth community.        
+               </p>
+               <p>Key Peak: Mount Moroto(3,083 meters).</p>
+   				<p class="location">
+                  Location: Northeastern Uganda, near the border with Kenya.
+               </p>
+   			</div>
+   
+            <div class="attraction">
+               <img src="IMG\zen-5760687_1280.jpg">
+               <h3>Mount Zulia</h3>
+               <p>
+                  Less prominent in height but significant within the 
+                  local geography.
+               </p>
+               <p class="location">
+                  Location: Northwestern Uganda,near the border with
+                  South Sudan.
+               </p>
+            </div>
+   		</div>
+   	</section>
+
+   	<section id="beaches" class="subcategory">
+   		<h2>Beaches</h2>
+   		<div class="attractions">
+   			<div class="attraction">
+   				<img src="IMG\sunset-1985086_1280.jpg">
+   				<h3>Lutembe Beach</h3>
+   				<p>
+                 Its known for its tranquil environment and 
+                 beautiful views of Lake Victoria.
+                 It's a great spot for birdwatching, especially
+                 flamingos,and offers ascrene escape with its 
+                 sandy shores and gentle waves.        
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>Entebbe.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\bedroom-462772_1280.jpg">
+   				<h3>Imperial Resort Beach</h3>
+   				<p>
+                  Part of the Imperial Resort Beach Hotel, this
+                  beach is well-maintained and offerd various
+                  amenities,including restaurants,bars,and 
+                  water sports.The beach is clean and family-friendly
+                  ,making it a popular choice for both locals and
+                  tourists.
+               </p>
+   				<p class="location">
+                   <strong>Location:</strong>Entebbe.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\beach-293826_1280.jpg">
+   				<h3>Lido Beach</h3>
+   				<p>
+                  One of Uganda's oldest beaches,Lido Beach is known
+                  for its lively atmosphere.It features beach bars,
+                  music, and weekend events, making it a hotspot
+                  for social gatherings.The sandy beach and warm
+                  waters of Lake Victoria make it an inviting destination for
+                  swimming and relaxation.
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>Entebbe.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\coast-8308438_1280.jpg">
+   				<h3>One Love Beach</h3>
+   				<p> 
+                  Owned by the famous Uganda musician Bobi Wine,
+                  One Love Beach is a vibrant spot that hosts numerous
+                  music concerts and cultural events.
+                  The beach offers a laid-backatmosphere with stunnung
+                  views of Lake Victoria,making it a popular
+                  spot for both relaxation and entertainment.
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>Buabala,near Kampala.
+               </p>
+   			</div>
+   		</div>
+   	</section>
+
+   	
+    <section id="waterfalls" class="subcategory">
+   		<h2>Waterfalls</h2>
+   		<div class="attractions">
+   			<div class="attraction">
+   				<img src="IMG\river-nile-2904342_1280.jpg">
+   				<h3>Source of the Nile</h3>
+   				<p>
+                  The source of the Nile is located at the point where
+                  the river emerges from Lake Victoria in Jinja.
+                  This is considered the starting point of the Nile River,
+                  which is one of the longest rivers in the world.
+                  The area around the source is a popular tourist destination,
+                  offering activities such as boat cruises,fishing,and visits
+                  to the nearby monuments.
+                  The source was famously confirmed by the explorer John Hanning
+                  Speke in 1862. The surroundings are lush and green,providing
+                  picturesque views of the river and lake.        
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>Jinja,Eastern Uganda.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\murchison-falls-2298591_1280.jpg">
+   				<h3>Murchison Falls</h3>
+   				<p>
+                  Murchison Falls,also known as Kabalega Falls,are located
+                  on the Victoria Nile within Murchison Falls National Park.
+                  The falls are formed where the Nile forces its way through
+                  a narrow gorge,just 7 meters wide,before plunging 43 meters.
+                  The powerful flow creates a dramatic and thunderous display,
+                  making Murchison Falls one of the most impressive natural
+                  sights in Uganda.
+               </p>
+   				<p class="location">Location:</p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\cascade-7152189_1280.jpg">
+   				<h3>Sezibwa Falls</h3>
+   				<p>
+                  Often overshadowed by its better-known namesake,
+                  the Ssezibwa Falls near Mukono are still relatively
+                  undiscovered.These falls are significant in Baganda
+                  culture and offer a scenic spot for picnicking,
+                  bird watching,and experiencing local traditions.
+                  The falls cascade over rock formations,creating
+                  picturesque pools and a screne environment.     
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>Near Mukono,
+                  Central Uganda.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\sipi-falls-4761660_1280.jpg">
+   				<h3>Sipi Falls</h3>
+   				<p>
+                  Besides the main Sipi Falls,the area features
+                  two additional lesser-known waterfalls that
+                  contribute to th beauty of the Sipi River.
+                  Each fall has its unique charm,cascading over
+                  cliffs surrounded by green hills and coffee 
+                  plantations.
+                  The area offers excellent hiking trails and
+                  breathtaking views of the Karamoja Plains.        
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>Near Kapchorwa,
+                  Eastern,Uganda.
+               </p>
+   			</div>
+            <div class="attraction">
+               <img src="IMG\waterfall-7953344_1280.jpg">
+               <h3>Karuma Falls</h3>
+               <p>
+                  Karuma falls are located on the Victoria Nile.
+                  The falls are characterized by their white-water
+                  rapids and are an important site for hydroelectric
+                  power generation.
+               </p>
+               <p class="location">
+                  <strong>Location:</strong>Near the town of Karuma,
+                  Northern Uganda.
+               </p>
+            </div>
+            <div class="attraction">
+               <img src="IMG\waterfall-7315169_1280.jpg">
+               <h3>Aruu Falls</h3>
+               <p>
+                  Aruu Falls cascade down a series of rocks
+                  creating multiple small waterfalls and pools,
+                  making it a beautiful and tranquil location.
+                  The falls are surrounded by verdant vegetation
+                  and offer a refreshing spot for visitors to
+                  relax and swim. The area is relatively remote,
+                  providing a peaceful retreat away from more
+                  crowded toirist spots.
+               </p>
+               <p class="location">
+                  <strong>Location:</strong>Pader district,
+                  Northern Uganda.
+               </p>
+            </div>
+            <div class="attraction">
+               <img src="IMG\white-water-rafting-354505_1280.jpg">
+               <h3>Itanda Falls</h3>
+               <p>
+                  Itanda Falls are powerful rapids in the 
+                  Victoria Nile, downstream from the source
+                  of the Nile.
+                  Although not a traditional vertical
+                  waterfall,the rapids provide spectacular
+                  views and are a hotspot for white-water
+                  rafting enthusiasts.The surrounding
+                  scenery includes lush greenery and the
+                  roaring sound of the rapids,making it 
+                  a thrilling experience for visitors.
+               </p>
+               <p class="location">
+                  <strong>Location:</strong>Near Jinja,
+                  Eastern Uganda.
+               </p>
+            </div>
+            
+            <div class="attraction">
+               <img src="IMG\rocks-6351404_1280.jpg">
+               <h3>Kisiizi Falls</h3>
+               <p>
+                  Kissizi Falls is a picturesque waterfall with
+                  a tragic history,as it was once used as a 
+                  punishment site for women who bore children
+                  out of wedlock.
+                  Today,the falls are a symbol of hope and
+                  are associated with a hospital that provides
+                  healthcare to local community.
+                  The waterfall is surrounded by cliffs and lush
+                  vegetation.making it a serene and historically
+                  significant location.
+               </p>
+               <p class="location">
+                  <strong>Location:</strong>Rukungiri district,
+                  Southwestern Uganda.
+               </p>
+            </div>
+   		</div>
+   	</section>
+    
+    <section id="parks" class="subcategory">
+   		<h2>Parks</h2>
+   		<div class="attractions">
+   			<div class="attraction">
+   				<img src="IMG\mountain-gorilla-2705589_1280.jpg">
+   				<h3>Bwindi Impenetable National Park</h3>
+   				<p>
+                  A UNESCO World Heritage Site, Bwindi is renowned for
+                  its population of mountain gorillas.The park features
+                  dense,mist-covered rainforest and is home to a rich
+                  diversity of flora and fauna,including over 120 mammal
+                  species,350 bird species,and many butterflies.        
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>Southwestern Uganda,
+                  on the edge of the Albertine Rift.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\ishasha-2694652_1280.jpg">
+   				<h3>Queen Elizabeth National Park</h3>
+   				<p>
+                  Famous for its diverse ecosystems including
+                  savannah,humid forests,lakes,and fertile
+                  wetlands.The park is known for its tree-climbing
+                  lions in the Ishasha sector,large elephant herds,
+                  and the Kazinga Channel,which is teeming with
+                  hippos and crocodiles.        
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>Northwestern Uganda,
+                  stretching from Lake Albert to the northern part
+                  of the Albertine Rift Valley.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\savannah-1546116_1280.jpg">
+   				<h3>Kidepo Valley National Park</h3>
+   				<p>
+                  Known for its rugged savannah landscape and a high
+                  density of wildlife,Kidepo is one of Africa's last
+                  great wilderness areas.It features unique wildlife
+                  such as cheetahs,ostriches,and the Karamojong people
+                  who live nearby.        
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>Northeastern Uganda,
+                  bordering South Sudan and Kenya.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\uganda-7146882_1280.jpg">
+   				<h3>Kibale National Park</h3>
+   				<p>
+                  Kibale is famous for its primate population,
+                  particularly chimpanzees.The park's varied
+                  habitat supports one of the highest primate
+                  densities in the world,including red colobus monkeys
+                  and L'Hoest's monkeys.        
+               </p>
+   				<p class="location">
+                  <strong>Location:</strong>Western Uganda,
+                  near the town of Fort Portal.
+               </p>
+   			</div>
+            <div class="attraction">
+               <img src="IMG\zebra-1377240_1280.jpg">
+               <h3>Lake Mburo National Park</h3>
+               <p>
+                  Known for its picturesque landscape,the park
+                  features rolling hills,acacia woodlands,and
+                  Lake Mburo itself.It is home to impalas,
+                  zebras,buffalos,and over 300 bird species.
+               </p>
+               <p class="location">
+                  <strong>Location:</strong>Western Uganda,
+                  near Mbarara town.
+               </p>
+            </div>
+            <div class="attraction">
+               <img src="IMG\rhino-7716551_1280.jpg">
+               <h3>Uganda WildLife Education Center(UWEC)</h3>
+               <p>
+                  Often referred to as Entebbe Zoo,is not just
+                  a zoo but also a conservation and education center.
+                  It houses rescued animals including lions,rhinos,
+                  chimpanzees,and numerous bird species.UWEC aims
+                  to educate the public about wildlife conservation
+                  and rehabilitate injured or orphaned animals.
+               </p>
+               <p class="location">
+                  <strong>Location:</strong>
+               </p>
+            </div>
+   		</div>
+   	</section>
+    
+    <section id="lakes" class="subcategory">
+   		<h2>Lakes</h2>
+   		<div class="attractions">
+   			<div class="attraction">
+   				<img src="IMG\lake-victoria-2108871_1280.jpg">
+   				<h3>Lake Victoria</h3>
+   				<ul>
+                 <ol>
+                    The largest lake in Africa and the world's
+                    second-largest freshwater lake by surface area.
+                 </ol>
+                 <ol>
+                    Covers an area of about 68,800 square kilometers.
+                 </ol>
+                 <ol>
+                    Major towns on its shores include Entebbe,Kampala
+                    and Jinja.
+                 </ol>
+                 <ol>
+                    Source of the White Nile River.
+                 </ol>
+                 <ol>
+                    Supports a rich biodiversity,including numerous
+                    fish species like the Nile perch and tilapia.
+                 </ol>
+                 <ol>
+                    Key for fishing, transportation, and tourism.
+                 </ol>        
+               </ul>
+   				<p class="location">
+                  <strong>Location:</strong>Southeastern Uganda,
+                  bordering Kenya and Tanzania.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\lake-albert-2103890_1280.jpg">
+   				<h3>Lake Albert</h3>
+   				<ul>
+                 <ol>
+                    One of the African Great Lakes,named after
+                    Prince Albert,consort of Queen Victoria.
+                 </ol>
+                 <ol>
+                    Appproximately 5,300 square kilometers in
+                    area.
+                 </ol>
+                 <ol>
+                    Part of the Albertine Rift,the western branch
+                    of the East African Rift.
+                 </ol>
+                 <ol>
+                    Drains into the Nile River through the Albert Nile.
+                 </ol>
+                 <ol>
+                    Important for oil exploration activities and local
+                    fishing communities.
+                 </ol> 
+               </ul>
+   				<p class="location">
+                  <strong>Location:</strong>Western Uganda,
+                  on the border with the Democratic Republic
+                  of the Congo.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\bike-3636454_1280.jpg">
+   				<h3>Lake Edward</h3>
+               <ul>
+                  <ol>
+                     Another of the African Great Lakes,
+                     named after King Edward VII.
+                  </ol>
+                  <ol>
+                     Covers about 2,325 square kilometers.
+                  </ol>
+                  <ol>
+                     Connected to Lake George by the Kazinga
+                     Channel.
+                  </ol>
+                  <ol>
+                     Lies within Queen Elizabeth National Park,
+                     providing habitats for diverse wildlife.
+                  </ol>
+                  <ol>
+                     Supports local fisheries and wildlife tourism.
+                  </ol>
+               </ul>  			
+   				<p class="location">
+                  <strong>Location:</strong>Southwest Uganda,
+                  on the border with the Democratic Republic
+                  of the Congo.
+               </p>
+   			</div>
+   			<div class="attraction">
+   				<img src="IMG\africa-5365330_1280.jpg">
+   				<h3>Lake George</h3>
+   				<ul>
+                  <ol>
+                     Relatively small,covering around 250 square
+                     kilometers.
+                  </ol>
+                  <ol>
+                     Connected to Lake Edward by the Kazinga Channel.
+                  </ol>
+                  <ol>
+                     Lies within Queen Elizabeth National Park,contributing
+                     to the park's rich biodiversity.
+                  </ol>
+                  <ol>
+                     Known for its high productivity and diverse fish species.
+                  </ol>        
+               </ul>
+   				<p class="location">
+                  <strong>Location:</strong>Central Uganda,
+                  east of Lake Victoria.
+               </p>
+   			</div>
+            <div class="attraction">
+               <img src="IMG\sunset-2428782_1280.jpg">
+               <h3>Lake Kyoga</h3>
+               <ul>
+                  <ol>
+                     Covers approximately 1,720 square kilometers.
+                  </ol>
+                  <ol>
+                     Shallow and swampy,with an average depth of 
+                     about 4 meters.
+                  </ol>
+                  <ol>
+                     Receives water from the Victoria Nile and
+                     drains into the Kyoga Nile.
+                  </ol>
+                  <ol>
+                     Important for local agriculture,fishing,
+                     and transport.
+                  </ol>
+               </ul>
+               <p class="location">
+                  <strong>Location:</strong>Central Uganda,
+                  east of Lake Victoria.
+               </p>
+            </div>
+            <div class="attraction">
+               <img src="IMG\wild-geese-3379677_1280.jpg">
+               <h3>Lake Bunyonyi</h3>
+               <ul>
+                  <ol>
+                     Known as one of the deepest lakes in Africa,
+                     with depths reaching up to 900 meters.
+                  </ol>
+                  <ol>
+                     Covers an area of about 46 square kilometers.
+                  </ol>
+                  <ol>
+                     Famous for its scenic beauty,with numerous 
+                     islands and terraced hills.
+                  </ol>
+                  <ol>
+                     Popular for eco-tourism,bird watching,and
+                     cultural experiences.
+                  </ol>
+               </ul>
+               <p class="location">
+                  <strong>Location:</strong>Southwestern Uganda,
+                  near the Rwandan border.
+               </p>
+            </div>
+            <div class="attraction">
+               <img src="IMG\boat-5695480_1280.jpg">
+               <h3>Lake Wamala</h3>
+               <ul>
+                  <ol>
+                     Covers approximately 250 square kilometers,
+                     although it fluctuates seasonally.
+                  </ol>
+                  <ol>
+                     A shallow freshwater lake with swampy shores.
+                  </ol>
+                  <ol>
+                     Important for local fishing and agriculture.
+                  </ol>
+               </ul>
+               <p class="location">
+                  <strong>Location:</strong>Central Uganda,
+                  northwest of Kampala.
+               </p>
+            </div>
+   		</div>
+   	</section>
+
+      <section id="forests" class="subcategory">
+         <h2>Forests</h2>
+         <div class="attractions">
+            <div class="attraction">
+               <img src="IMG\uganda-2111153_1280.jpg">
+               <h3>Mabira Forest</h3>
+               <p>
+                  One of Uganda's largest surviving natural forests,
+                  Mabira is a moist semi-deciduous forest. It is home
+                  to over 300 bird species,various primates,and
+                  diverse plant life.
+               </p>
+               <p class="location">
+                  <strong>Location:</strong>Central Uganda,
+                  between Kampala and Jinja.
+               </p>
+            </div>
+            <div class="attraction">
+               <img src="IMG\jungle-2108882_1280.jpg">
+               <h3>Budongo Forest</h3>
+               <p>
+                 Part of the Murchison Falls Conservation Area,
+                 Budongo is a large tropical forest reserve known
+                 for its mahogany trees and significant chimpanzee
+                 population.The forest also supports a wide variety
+                 of bird species. 
+               </p>
+               <p class="location">
+                  <strong>Location:</strong>Northwestern Uganda,
+                  near the town of Masindi.
+               </p>
+            </div>
+            <div class="attraction">
+               <img src="IMG\zen-5760687_1280.jpg">
+               <h3>Mgahinga Gorilla National Park</h3>
+               <p>
+                  Part of the Virunga Volcanoes region,this park 
+                  protects the Ugandan portion of the Virunga Mountains.
+                  It is a critical habitat for the mountain gorillas and
+                  golden monkeys.
+               </p>
+               <p class="location">
+                  <strong>Location:</strong>Southwestern Uganda,
+                  adjacent to Rwanda and the Democratic Republic
+                  of Congo.
+               </p>
+            </div>
+         </div>
+      </section>
+
+      <div class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="home.html" id="nav-home">
+            <span class="material-icons">home</span>
+            Home
+        </a>
+        <a href="gallery.html" id="nav-gallery">
+            <span class="material-icons">photo</span>
+            Gallery
+        </a>
+        <a href="map.html" id="nav-map">
+            <span class="material-icons">map</span>
+            Map
+        </a>
+        <a href="bookings.html" id="nav-bookings">
+            <span class="material-icons">book</span>
+            Bookings
+        </a>
+        <a href="posts.html" id="nav-posts">
+          <span class="material-icons">article</span>
+           Post
+        </a>
+        <a href="business-post.html" id="nav-posts">
+          <span class="material-icons">shop</span>
+           Market
+        </a> 
+
+   	
+   </main>
+
+
+   <script src="js\scripts.js">
+      function handleNavClick(event) {
+            event.preventDefault();
+            document.querySelectorAll('.navbar a').forEach(navLink => {
+                navLink.classList.remove('active');
+            });
+            const target = event.currentTarget;
+            target.classList.add('active');
+            const pageUrl = target.getAttribute('href');
+            window.location.href = pageUrl;
+        }
+
+        document.querySelectorAll('.navbar a').forEach(navLink => {
+            navLink.addEventListener('click', handleNavClick);
+        });
+
+   </script>
+</body>
+</html>

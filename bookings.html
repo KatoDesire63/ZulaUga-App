@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book your dream vacation with our special offers and packages. Enjoy family adventures, romantic getaways, and weekend escapes. Easy booking and payment options available.">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Book Now</title>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .navbar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background-color: #f9f9f9;
+      border-top: 1px solid #ddd;
+      box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    }
+
+     .cards-container {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      overflow-x: auto;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #fff, #e6f7ff);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin: 20px;
+      flex: 0 0 auto; /* Prevent cards from shrinking */
+      width: 300px; /* Fixed width for each card */
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card-content h3 {
+      margin: 0 0 10px 0;
+      color: #007bff;
+    }
+
+    .card-content p {
+      margin: 0 0 10px 0;
+      color: #555;
+    }
+
+    .card-content .price {
+      color: #28a745;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .card-content a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .card-content a:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .navbar a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      padding: 10px 0;
+      text-align: center;
+      text-decoration: none;
+      color: #000;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar a:hover, .navbar a.active {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .material-icons {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .content {
+      padding: 20px;
+      margin-bottom: 60px; /* Space for the fixed navbar */
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <main>
+
+    <h2>Advertised Businesses</h2>
+    <div class="cards-container" id="advertised-businesses">
+    <!--Dynamic cards will be inserted here -->
+      <div class="card">
+        <img src="IMG\beauty-2210701_1280.jpg" alt="Business 1">
+        <div class="card-content">
+          <h3>Business Name 1</h3>
+          <p>Service description for business 1.</p>
+          <p class="price">$100</p>
+          <a href="business1-details.html">More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="IMG\to-travel-1677347_1280.jpg" alt="Business 2">
+        <div class="card-content">
+          <h3>Business Name 2</h3>
+          <p>Service description for business 2.</p>
+          <p class="price">$200</p>
+          <a href="business2-details.html">More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="IMG\camping-4522221_1280.jpg" alt="Business 3">
+        <div class="card-content">
+          <h3>Business Name 3</h3>
+          <p>Service description for business 3.</p>
+          <p class="price">$300</p>
+          <a href="business3-details.html">More</a>
+        </div>
+      </div>
+    </div>
+
+    <h2>Book Your Trip Now</h2>
+    <form id="booking-form">
+      <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="arrival-date">Arrival Date:</label>
+        <input type="date" name="arrival_date" id="arrival-date" required>
+      </div>
+      <div class="form-group">
+        <label for="departure-date">Departure Date:</label>
+        <input type="date" name="departure_date" id="departure-date" required>
+      </div>
+      <div class="form-group">
+        <label for="adults">Number of Adults:</label>
+        <input type="number" name="adults" id="adults" min="1" required>
+      </div>
+      <div class="form-group">
+        <label for="children">Number of Children:</label>
+        <input type="number" name="children" id="children" min="0">
+      </div>
+      <div class="form-group">
+        <label for="accommodation">Accommodation Type:</label>
+        <select id="accommodation" name="accommodation" required>
+          <option value="hotel">Hotel</option>
+          <option value="resort">Resort</option>
+          <option value="guesthouse">Guesthouse</option>
+          <option value="villa">Villa</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">Date of Travel:</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+      <div class="form-group">
+        <label for="paymentMethod">Payment Method:</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+          <option value="">Select a payment method</option>
+          <option value="mobileMoney">Mobile Money</option>
+          <option value="visaCard">Visa Card</option>
+          <option value="paypal">PayPal</option>
+        </select>
+      </div>
+      <div id="mobileMoneyOptions" style="display: none;">
+        <div class="form-group">
+          <label for="mobileMoneyOperator">Mobile Money Operator:</label>
+          <select id="mobileMoneyOperator" name="mobileMoneyOperator">
+            <option value="">Select operator</option>
+            <option value="airtel">Airtel Money</option>
+            <option value="mtn">MTN Money</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mobileMoneyNumber">Mobile Money Number:</label>
+          <input type="tel" id="mobileMoneyNumber" name="mobileMoneyNumber">
+        </div>
+      </div>
+      <div id="visaCardOptions" style="display: none;">
+        <div class="form-group">
+          <label for="cardNumber">Card Number:</label>
+          <input type="text" id="cardNumber" name="cardNumber">
+        </div>
+        <div class="form-group">
+          <label for="cardExpiry">Card Expiry Date:</label>
+          <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY">
+        </div>
+        <div class="form-group">
+          <label for="cardCVV">Card CVV:</label>
+          <input type="text" id="cardCVV" name="cardCVV">
+        </div>
+      </div>
+      <div id="paypalOptions" style="display: none;">
+        <div class="form-group">
+          <label for="paypalEmail">PayPal Email:</label>
+          <input type="email" id="paypalEmail" name="paypalEmail">
+        </div>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+  
+  <div class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="home.html" id="nav-home">
+      <span class="material-icons">home</span>
+      Home
+    </a>
+    <a href="gallery.html" id="nav-gallery">
+      <span class="material-icons">photo</span>
+      Gallery
+    </a>
+    <a href="map.html" id="nav-map">
+      <span class="material-icons">map</span>
+      Map
+    </a>
+    <a href="bookings.html" id="nav-bookings">
+      <span class="material-icons">book</span>
+      Bookings
+    </a>
+    <a href="posts.html" id="nav-posts">
+      <span class="material-icons">article</span>
+      Posts
+    </a>
+    <a href="business-post.html" id="nav-posts">
+          <span class="material-icons">shop</span>
+           Market
+        </a>
+  </div>
+
+  <script>
+    async function fetchAdvertisedBusinesses() {
+      try {
+        const response = await fetch('http://localhost:3000/api/advertised-businesses');
+        if (!response.ok) {
+          throw new Error('Failed to fetch advertised businesses.');
+        }
+        const businesses = await response.json();
+        const container = document.getElementById('advertised-businesses');
+
+        businesses.forEach(business => {
+          const card = document.createElement('div');
+          card.className = 'card';
+
+          const img = document.createElement('img');
+          img.src = business.image;
+          img.alt = business.name;
+
+          const cardContent = document.createElement('div');
+          cardContent.className = 'card-content';
+
+          const h3 = document.createElement('h3');
+          h3.textContent = business.name;
+
+          const description = document.createElement('p');
+          description.textContent = business.description;
+
+          const price = document.createElement('p');
+          price.className = 'price';
+          price.textContent = `$${business.price}`;
+
+          const moreLink = document.createElement('a');
+          moreLink.href = business.detailsUrl;
+          moreLink.textContent = 'More';
+
+          cardContent.appendChild(h3);
+          cardContent.appendChild(description);
+          cardContent.appendChild(price);
+          cardContent.appendChild(moreLink);
+          card.appendChild(img);
+          card.appendChild(cardContent);
+          container.appendChild(card);
+        });
+      } catch (error) {
+        console.error('Error:',error);
+      }
+    }
+
+    //Call the function to fetch and display businesses
+    fetchAdvertisedBusinesses();
+
+
+     document.getElementById('paymentMethod').addEventListener('change', function() {
+  const paymentMethod = this.value;
+  document.getElementById('mobileMoneyOptions').style.display = paymentMethod === 'mobileMoney' ? 'block' : 'none';
+  document.getElementById('visaCardOptions').style.display = paymentMethod === 'visaCard' ? 'block' : 'none';
+  document.getElementById('paypalOptions').style.display = paymentMethod === 'paypal' ? 'block' : 'none';
+});
+
+document.getElementById('booking-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const paymentMethod = document.getElementById('paymentMethod').value;
+  const mobileMoneyOperator = document.getElementById('mobileMoneyOperator').value;
+  const mobileMoneyNumber = document.getElementById('mobileMoneyNumber').value;
+
+  if (paymentMethod === 'mobileMoney') {
+    if (mobileMoneyOperator === 'airtel' && !/^07[045]/.test(mobileMoneyNumber)) {
+      alert('Please enter a valid Airtel Money number.');
+      return;
+    }
+    if (mobileMoneyOperator === 'mtn' && !/^07[678]/.test(mobileMoneyNumber)) {
+      alert('Please enter a valid MTN Money number.');
+      return;
+    }
+  }
+
+  const formData = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    arrival_date: document.getElementById('arrival-date').value,
+    departure_date: document.getElementById('departure-date').value,
+    adults: document.getElementById('adults').value,
+    children: document.getElementById('children').value,
+    accommodation: document.getElementById('accommodation').value,
+    date: document.getElementById('date').value,
+    paymentMethod: document.getElementById('paymentMethod').value,
+    mobileMoneyOperator: document.getElementById('mobileMoneyOperator').value,
+    mobileMoneyNumber: document.getElementById('mobileMoneyNumber').value,
+    cardNumber: document.getElementById('cardNumber').value,
+    cardExpiry: document.getElementById('cardExpiry').value,
+    cardCVV: document.getElementById('cardCVV').value,
+    paypalEmail: document.getElementById('paypalEmail').value,
+  };
+
+  try {
+    const response = await fetch('http://localhost:3000/api/bookings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+
+    if (response.ok) {
+      alert('Booking successful!');
+      window.location.href = 'index.html';
+    } else {
+      alert('Failed to submit booking.');
+    }
+  } catch (err) {
+    console.error('Error:', err);
+    alert('Failed to submit booking.');
+  }
+});
+  </script>
+</body>
+</html>

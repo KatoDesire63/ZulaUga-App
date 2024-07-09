@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ugandan Local Cuisines</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <style>
+    .navbar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        background-color: #f9f9f9;
+        border-top: 1px solid #ddd;
+        box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        padding: 10px 0;
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+    }
+
+    .navbar a:hover, .navbar a.active {
+        background-color: #333;
+    }
+
+    .material-icons {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+
+    .content {
+        padding: 20px;
+        margin-bottom: 60px; /* Space for the fixed navbar */
+    }
+
+   </style>
+</head>
+
+<body>
+
+  <main>
+  	<h2>Discover Ugandan Local Cuisines</h2>
+  	<div class="cuisine-container">
+  		<div class="cuisine-item">
+  			<img src="IMG\matooke.jpg" alt="Matoke">
+  			<h3>Matoke</h3>
+  			<p>
+  				A traditional dish made from steamed green
+  				bananas, often served with peanut sauce.
+  			</p>
+  		</div>
+  		<div class="cuisine-item">
+  			<img src="IMG\posho.jpg" alt="Posho">
+  			<h3>Posho[Ugali]</h3>
+  			<p>
+               A staple food made from maize flour, similar
+               to polenta or grits
+  			</p>
+  		</div>
+  		<div class="cuisine-item">
+  			<img src="IMG\luwombo.jpg" alt="Luwombo">
+  			<h3>Luwombo</h3>
+  			<p>
+                A delicious dish made with meat, pork or 
+                groundnuts, steamed in banana leaves.
+  			</p>
+  		</div>
+  		<div class="cuisine-item">
+  			<img src="IMG\rolex.jpg" alt="Rolex">
+  			<h3>Rolex</h3>
+  			<p>
+               A popular street food consisting of a chapati
+               rolled with eggs and vegetables.
+  			</p>
+  		</div>
+  		<div class="cuisine-item">
+  			<img src="IMG\nsenene.jpg" alt="Nsenene">
+  			<h3>Nsenene</h3>
+  			<p>
+               Seasoned and fried grasshoppers,considered a delicacy
+               and typically eaten during the rainy season.   
+  			</p>
+  		</div>
+  		<div class="cuisine-item">
+  			<img src="IMG\kikomando.jpg" alt="Kikomando">
+  			<h3>Kikomando</h3>
+  			<p>
+               A simple yet popular dish of sliced chapati
+               mixed with fried beans or meat.
+  			</p>
+  		</div>
+  	</div>
+   <div class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="home.html" id="nav-home">
+            <span class="material-icons">home</span>
+            Home
+        </a>
+        <a href="gallery.html" id="nav-gallery">
+            <span class="material-icons">photo</span>
+            Gallery
+        </a>
+        <a href="map.html" id="nav-map">
+            <span class="material-icons">map</span>
+            Map
+        </a>
+        <a href="bookings.html" id="nav-bookings">
+            <span class="material-icons">book</span>
+            Bookings
+        </a>
+        <a href="posts.html" id="nav-posts">
+          <span class="material-icons">article</span>
+           Post
+        </a>
+        <a href="business-post.html" id="nav-posts">
+          <span class="material-icons">shop</span>
+           Market
+        </a> 
+
+  </main>
+  <script>
+      function handleNavClick(event) {
+            event.preventDefault();
+            document.querySelectorAll('.navbar a').forEach(navLink => {
+                navLink.classList.remove('active');
+            });
+            const target = event.currentTarget;
+            target.classList.add('active');
+            const pageUrl = target.getAttribute('href');
+            window.location.href = pageUrl;
+        }
+
+        document.querySelectorAll('.navbar a').forEach(navLink => {
+            navLink.addEventListener('click', handleNavClick);
+        });
+  </script>
+</body>
+</html>

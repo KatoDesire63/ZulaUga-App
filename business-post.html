@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Your Business - Tourism App</title>
+    <meta name="description" content="Post your business on our tourism app to reach more customers and grow your business.">
+    <meta name="keywords" content="tourism, business, post, services, listing">
+    <meta name="author" content="Tourism App Team">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+         
+        .navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover, .navbar a.active {
+    background-color: #333;
+}
+
+.material-icons {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.content {
+    padding: 20px;
+    margin-bottom: 60px; /* Space for the fixed navbar */
+}
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .upload-button, .add-service, .footer-buttons button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+            width: calc(33% - 20px);
+            box-sizing: border-box;
+        }
+        .upload-button:hover, .add-service:hover, .footer-buttons button:hover {
+            background-color: #0056b3;
+        }
+        .add-service {
+            background-color: #28A745;
+            margin: 10px 0;
+            width: 100%;
+        }
+        .footer-buttons {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .footer-buttons button.save-draft {
+            background-color: #ffc107;
+        }
+        .footer-buttons button.save-draft:hover {
+            background-color: #e0a800;
+        }
+        .footer-buttons button.submit {
+            background-color: #007BFF;
+        }
+        .footer-buttons button.submit:hover {
+            background-color: #0056b3;
+        }
+        .footer-buttons button.cancel {
+            background-color: #6c757d;
+        }
+        .footer-buttons button.cancel:hover {
+            background-color: #5a6268;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+            .footer-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .footer-buttons button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .upload-button, .add-service {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" role="main">
+        <h1>Market Your Business With Us😃</h1>
+
+        <label for="business-name">Business Name:</label>
+        <input type="text" id="business-name" placeholder="Enter your business name" aria-label="Business Name">
+
+        <label for="category">Category:</label>
+        <select id="category" aria-label="Category">
+            <option value="">Select category</option>
+            <option value="accommodation">Accommodation</option>
+            <option value="restaurants">Restaurants</option>
+            <option value="tours">Tours</option>
+            <option value="transportation">Transportation</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="shopping">Shopping</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="description">Description:</label>
+        <textarea id="description" placeholder="Describe your business and services offered" aria-label="Description"></textarea>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" placeholder="Enter address or location" aria-label="Location">
+
+        <label>Contact Information:</label>
+        <input type="text" id="phone" placeholder="Enter phone number" aria-label="Phone Number" style="margin-bottom: 10px;">
+        <input type="text" id="email" placeholder="Enter email address" aria-label="Email Address" style="margin-bottom: 10px;">
+        <input type="text" id="website" placeholder="Enter website URL (optional)" aria-label="Website URL">
+
+        <label for="hours">Business Hours:</label>
+        <input type="text" id="hours" placeholder="Enter business hours" aria-label="Business Hours">
+
+        <label for="photo-upload">Add Photos:</label>
+        <div class="upload-button" onclick="document.getElementById('photo-upload').click();" role="button" tabindex="0">Add Photos</div>
+        <input type="file" id="photo-upload" style="display: none;" multiple aria-label="Upload Photos">
+        <div id="photo-preview"></div>
+
+        <label>Social Media Links:</label>
+        <div class="social-media-input">
+            <img src="IMG\facebook-2429746_1280.png" alt="Facebook" width="24" height="24">
+            <input type="text" placeholder="Facebook URL" aria-label="Facebook URL">
+        </div>
+        <div class="social-media-input">
+            <img src="IMG\instagram-3814080_1280.png" alt="Instagram" width="24" height="24">
+            <input type="text" placeholder="Instagram URL" aria-label="Instagram URL">
+        </div>
+        <div class="social-media-input">
+            <img src="IMG\twitter-2170426_1280.png" alt="Twitter" width="24" height="24">
+            <input type="text" placeholder="Twitter URL" aria-label="Twitter URL">
+        </div>
+
+        <label>Services Offered:</label>
+        <div id="services">
+            <div class="service">
+                <input type="text" placeholder="Enter service name" aria-label="Service Name" style="margin-bottom: 10px;">
+                <textarea placeholder="Describe the service" aria-label="Service Description" style="margin-bottom: 10px;"></textarea>
+                <input type="text" placeholder="Enter price (if applicable)" aria-label="Service Price">
+            </div>
+        </div>
+        <div class="add-service" onclick="addService()" role="button" tabindex="0">+ Add Another Service</div>
+
+        <div class="footer-buttons">
+            <button class="save-draft" onclick="saveDraft()">Save Draft</button>
+            <button class="submit" onclick="submitForm()">Submit</button>
+            <button class="cancel" onclick="cancelForm()">Cancel</button>
+        </div>
+    </div>
+
+    <div class="navbar" role="navigation" aria-label="Main navigation">
+        <a href="home.html" id="nav-home">
+            <span class="material-icons">home</span>
+            Home
+        </a>
+        <a href="gallery.html" id="nav-gallery">
+            <span class="material-icons">photo</span>
+            Gallery
+        </a>
+        <a href="map.html" id="nav-map">
+            <span class="material-icons">map</span>
+            Map
+        </a>
+        <a href="bookings.html" id="nav-bookings">
+            <span class="material-icons">book</span>
+            Bookings
+        </a>
+        <a href="posts.html" id="nav-posts">
+            <span class="material-icons">article</span>
+            Posts
+        </a>
+        <a href="business-post.html" id="nav-posts">
+          <span class="material-icons">shop</span>
+           Market
+        </a>
+</div>
+
+    <script>
+        function addService() {
+            const serviceDiv = document.createElement('div');
+            serviceDiv.classList.add('service');
+            serviceDiv.innerHTML = `
+                <input type="text" placeholder="Enter service name" aria-label="Service Name" style="margin-bottom: 10px;">
+                <textarea placeholder="Describe the service" aria-label="Service Description" style="margin-bottom: 10px;"></textarea>
+                <input type="text" placeholder="Enter price (if applicable)" aria-label="Service Price">
+            `;
+            document.getElementById('services').appendChild(serviceDiv);
+        }
+
+        function submitForm() {
+           saveDraft(); // Corrected to invoke the function
+        }
+
+
+        function cancelForm() {
+            if (confirm('Are you sure you want to cancel? All changes will be lost.')) {
+                // Reset the form or redirect as needed
+                window.location.href = 'index.html';
+            }
+        }
+
+        document.getElementById('photo-upload').addEventListener('change', function() {
+            const preview = document.getElementById('photo-preview');
+            preview.innerHTML = '';
+            for (const file of this.files) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = 'Uploaded photo';
+                    img.style.width = '100px';
+                    img.style.height = '100px';
+                    img.style.margin = '10px';
+                    img.style.objectFit = 'cover';
+                    preview.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        const backendUrl = 'http://localhost:3000/save-form'; //Update this with your backend URL
+
+        function collectFormData() {
+            return {
+                businessName:document.getElementById('business-name').value,
+                category:document.getElementById('category').value,
+                description:document.getElementById('description').value,
+                location:document.getElementById('location').value,
+                phone:document.getElementById('phone').value,
+                email:document.getElementById('email').value,
+                website:document.getElementById('website').value,
+                hours:document.getElementById('hours').value,
+                photo:document.getElementById('photo').value,
+                //Add additional form fields as needed
+            };
+        }
+
+        function saveDraft() {
+            const formData = collectFormData();
+            fetch(backendUrl, {
+                method:'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.text())
+            .then(data => alert(data))
+            .catch(error => console.error('Error:',error));
+        }
+
+        function submitForm() {
+            saveDraft; //Call saveDraft to reuse the logic
+        }
+    </script>
+</body>
+</html>
