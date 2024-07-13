@@ -54,4 +54,41 @@ app.get('/get-form/:key',(req,res) => {
 			res.status(200).send(data.Body.toString('utf-8'));
 		}
 	});
-}); 
+});
+
+const express = require('express');
+const fetch = require('node-fetch');
+require('dotenv').config(); // Load environment variables from .env file
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+const OPENWEATHER_API_KEY = process.env.SEAPRIDE; // Replace with your API key variable name
+
+// Middleware to enable CORS (if needed)
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Allow requests from any origin
+    next();
+});
+
+// Route to fetch weather data
+app.get('/weather', async (req, res) => {
+    const { lat, lon } = req.query;
+    const weatherEndpoint = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_API_KEY}`;
+
+    try {
+        const response = await fetch(weatherEndpoint);
+        if (!response.ok) {
+            throw new Error('Weather data not available');
+        }
+        const weatherData = await response.json();
+        res.json(weatherData);
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+// Start server
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+});
