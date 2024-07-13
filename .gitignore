@@ -1,9 +1,9 @@
-# WEATHER_API
-SEAPRIDE = 9d5dc0fc37d8f411172887bfe0ae883a
+
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
+/.env
 
 # testing
 /coverage
