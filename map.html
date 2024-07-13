@@ -168,26 +168,38 @@
   <script src="js/scripts.js">
       document.addEventListener('DOMContentLoaded', function() {
     // Initialize Leaflet map
-    var map = L.map('map').setView([51.505, -0.09], 13);
+    var map = L.map('map').setView([0, 0], 13); // Default to (0, 0) coordinates
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    // Attempt to get user's current location
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var userLatLng = [position.coords.latitude, position.coords.longitude];
+            map.setView(userLatLng, 13);
 
-    // Fetch weather data
-    var weatherContainer = document.getElementById('weather');
-
-    fetchWeatherData()
-        .then(weatherData => {
-            displayWeather(weatherData);
-        })
-        .catch(error => {
-            console.error('Error fetching weather data:', error);
-            weatherContainer.innerHTML = '<p>Error fetching weather data. Please try again later.</p>';
+            // Add a marker for the user's location (optional)
+            L.marker(userLatLng).addTo(map)
+                .bindPopup('You are here')
+                .openPopup();
+            
+            // Fetch weather data based on user's current location
+            fetchWeatherData(userLatLng)
+                .then(weatherData => {
+                    displayWeather(weatherData);
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                    weatherContainer.innerHTML = '<p>Error fetching weather data. Please try again later.</p>';
+                });
+        }, function(error) {
+            console.error('Error getting user location:', error);
         });
+    } else {
+        console.error('Geolocation is not supported by this browser.');
+    }
 
-    function fetchWeatherData() {
-        const endpoint = 'https://www.metaweather.com/api/location/search/?query=new%20york';
+    function fetchWeatherData(userLatLng) {
+        // Fetch weather data using the user's coordinates
+        const endpoint = `https://www.metaweather.com/api/location/search/?lattlong=${userLatLng[0]},${userLatLng[1]}`;
 
         return fetch(endpoint)
             .then(response => {
@@ -212,6 +224,7 @@
     }
 
     function displayWeather(weatherData) {
+        var weatherContainer = document.getElementById('weather');
         weatherContainer.innerHTML = `
             <h3>Current Weather</h3>
             <p>Temperature: ${weatherData.temperature.toFixed(1)} °C</p>
@@ -219,6 +232,7 @@
         `;
     }
 });
+
     
   </script>
 </body>
