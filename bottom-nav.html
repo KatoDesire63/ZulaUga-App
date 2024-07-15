@@ -53,6 +53,47 @@
         .active {
             color: #007bff; /* Active item color */
         }
+        /* Bottom Navigation Styles */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-item {
+    text-align: center;
+    flex-grow: 1;
+    text-decoration: none;
+    color: #333;
+    outline: none; /* Remove the default focus outline */
+}
+
+.nav-item:focus, .nav-item:active {
+    outline: none; /* Remove the focus outline */
+    background-color: transparent; /* Remove the background effect */
+}
+
+.material-icons {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.nav-text {
+    font-size: 12px;
+}
+
+.active {
+    color: #007bff; /* Active item color */
+}
+
     </style>
 </head>
 <body>
