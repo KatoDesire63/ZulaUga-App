@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bottom Navigation Bar</title>
+    <!-- Material Icons stylesheet -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 2000px; /* Added for scrolling effect */
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-item {
+            text-align: center;
+            flex-grow: 1;
+            text-decoration: none;
+            color: #333;
+            outline: none; /* Remove the default focus outline */
+        }
+
+        .nav-item:focus, .nav-item:active {
+            outline: none; /* Remove the focus outline */
+            background-color: transparent; /* Remove the background effect */
+        }
+
+        .material-icons {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .nav-text {
+            font-size: 12px;
+        }
+
+        .active {
+            color: #007bff; /* Active item color */
+        }
+    </style>
+</head>
+<body>
+    <div class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <span class="material-icons">home</span>
+            <span class="nav-text">Home</span>
+        </a>
+        <a href="" class="nav-item">
+            <span class="material-icons">search</span>
+            <span class="nav-text">Search</span>
+        </a>
+        <a href="#downloads" class="nav-item">
+            <span class="material-icons">file_download</span>
+            <span class="nav-text">Downloads</span>
+        </a>
+        <a href="#settings" class="nav-item">
+            <span class="material-icons">settings</span>
+            <span class="nav-text">Settings</span>
+        </a>
+    </div>
+    <script>
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', event => {
+                // Add your custom interactivity here
+                // Example: Highlight the selected item
+                document.querySelectorAll('.nav-item').forEach(nav => {
+                    nav.classList.remove('active');
+                });
+                item.classList.add('active');
+            });
+        });
+
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            const bottomNav = document.querySelector('.bottom-nav');
+
+            if (currentScroll > lastScrollTop) {
+                // Scrolling down
+                bottomNav.style.transform = 'translateY(100%)';
+            } else {
+                // Scrolling up
+                bottomNav.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+        }, false);
+    </script>
+</body>
+</html>
