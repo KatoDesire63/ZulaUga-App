@@ -341,35 +341,17 @@
     
     <div class="navbar" role="navigation" aria-label="Main navigation">
     
-    <a href="index.html" id="nav-home">
-            <span class="material-icons">home</span>
-            Home
-        </a>
-        <a href="gallery.html" id="nav-gallery">
-            <span class="material-icons">photo</span>
-            Gallery
-        </a>
-        <a href="map.html" id="nav-map">
-            <span class="material-icons">map</span>
-            Map
-        </a>
-        <a href="bookings.html" id="nav-bookings">
-            <span class="material-icons">book</span>
-            Bookings
-        </a>
-        <a href="posts.html" id="nav-posts">
-            <span class="material-icons">article</span>
-            Post
-        </a>
-        <a href="business-post.html" id="nav-posts">
-            <span class="material-icons">shop</span>
-            Market
-        </a> 
-    </div>
-
     </div>
     <script>
-        function handleNavClick(event) {
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch('bottom-nav.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('bottom-nav-container').innerHTML = data;
+        });
+    });
+      
+           function handleNavClick(event) {
             event.preventDefault();
             document.querySelectorAll('.navbar a').forEach(navLink => {
                 navLink.classList.remove('active');
