@@ -262,28 +262,48 @@
   <div class="bottom-nav-container"></div>
 
   <script>
-    // Function to load the bottom navigation bar from an external file
+          // Function to add event listeners to the navigation items
+        function addEventListeners() {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', event => {
+                    // Add your custom interactivity here
+                    // Example: Highlight the selected item
+                    document.querySelectorAll('.nav-item').forEach(nav => {
+                        nav.classList.remove('active');
+                    });
+                    item.classList.add('active');
+                });
+            });
+
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', function() {
+                let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                const bottomNav = document.querySelector('.bottom-nav');
+
+                if (currentScroll > lastScrollTop) {
+                    // Scrolling down
+                    bottomNav.style.transform = 'translateY(100%)';
+                } else {
+                    // Scrolling up
+                    bottomNav.style.transform = 'translateY(0)';
+                }
+                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+            }, false);
+        }
+
+        // Function to load the bottom navigation bar from an external file
         function loadBottomNav() {
             fetch('bottom-nav.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('bottom-nav-container').innerHTML = data;
-                    addNavEventListeners();
+                    addEventListeners();
                 });
         }
 
-
         // Load the bottom navigation bar when the page loads
         document.addEventListener('DOMContentLoaded', loadBottomNav);
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('bottom-nav.html')
-              .then(response => response.text())
-              .then(data => {
-                  document.getElementById('bottom-nav-container').innerHTML = data;
-               });
-        });
-      
-    
+
     async function fetchAdvertisedBusinesses() {
       try {
         const response = await fetch('http://localhost:3000/api/advertised-businesses');
