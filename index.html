@@ -335,6 +335,16 @@
             }, false);
         }
 
+        // Function to load the bottom navigation bar from an external file
+        function loadBottomNav() {
+            fetch('bottom-nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('bottom-nav-container').innerHTML = data;
+                    addNavEventListeners();
+                });
+        }
+
         // Load the bottom navigation bar when the page loads
         document.addEventListener('DOMContentLoaded', loadBottomNav);
 
