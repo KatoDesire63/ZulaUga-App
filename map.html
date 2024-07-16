@@ -11,33 +11,34 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
     <style>
-      body {
-         margin: 0;
-         font-family: Arial, sans-serif;
-      }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
 
-      .header {
-          position: relative;
-          padding: 10px;
-          background-color: #f1f1f1;
-      }
-      /* Map Container Styles */
-      #map-container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-      }
+        .header {
+            position: relative;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
 
-       #map, #weather {
-           height: 500px;
-           width: 90%;
-           max-width: 1000px;
-           border: 2px solid #333;
-           border-radius: 10px;
-           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-           margin-bottom: 1.5rem;
-           animation: fadeIn 2s ease-in-out;
-       }
+        /* Map Container Styles */
+        #map-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #map, #weather {
+            height: 500px;
+            width: 90%;
+            max-width: 1000px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            animation: fadeIn 2s ease-in-out;
+        }
 
         #weather h3 {
             margin-top: 0;
@@ -96,35 +97,22 @@
         <h2>Explore Tourist Attractions and Nearby Accommodations</h2>
         <div id="map-container">
             <div id="map"></div>
-            <div id="weather"></div> 
+            <div id="weather"></div>
         </div>
     </main>
-    <div class="bottom-nav-container"></div>
+    <div id="bottom-nav-container"></div>
 
     <script>
-        // Function to load the bottom navigation bar from an external file
-        function loadBottomNav() {
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load bottom navigation
             fetch('bottom-nav.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('bottom-nav-container').innerHTML = data;
-                    addNavEventListeners();
-                });
-        }
+                })
+                .catch(error => console.error('Error loading bottom navigation:', error));
 
-
-        // Load the bottom navigation bar when the page loads
-        document.addEventListener('DOMContentLoaded', loadBottomNav);
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch('bottom-nav.html')
-              .then(response => response.text())
-              .then(data => {
-                  document.getElementById('bottom-nav-container').innerHTML = data;
-               });
-        });
-      
-        
-        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize map
             var map = L.map('map').setView([0, 0], 13); // Default to (0, 0) coordinates
 
             if (navigator.geolocation) {
