@@ -19,44 +19,7 @@
             overflow: hidden;
         }
 
-          .navbar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ddd;
-    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
-}
-
-.navbar a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    padding: 10px 0;
-    text-align: center;
-    text-decoration: none;
-    color: #000;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-.navbar a:hover, .navbar a.active {
-    background-color: #333;
-}
-
-.material-icons {
-    font-size: 24px;
-    margin-bottom: 5px;
-}
-
-.content {
-    padding: 20px;
-    margin-bottom: 60px; /* Space for the fixed navbar */
-}
+          
 
         .section {
             background: #fff;
@@ -242,31 +205,29 @@
         </div>
     </div>
     
-    <div class="navbar" role="navigation" aria-label="Main navigation">
-        <a href="index.html" id="nav-home">
-            <span class="material-icons">home</span>
-            Home
-        </a>
-        <a href="gallery.html" id="nav-gallery">
-            <span class="material-icons">photo</span>
-            Gallery
-        </a>
-        <a href="map.html" id="nav-map">
-            <span class="material-icons">map</span>
-            Map
-        </a>
-        <a href="bookings.html" id="nav-bookings">
-            <span class="material-icons">book</span>
-            Bookings
-        </a>
-        <a href="posts.html" id="nav-posts">
-            <span class="material-icons">article</span>
-            Posts
-        </a>
-        <a href="business-post.html" id="nav-posts">
-          <span class="material-icons">shop</span>
-           Market
-        </a>
-</div>
+    <div class="bottom-nav-container"></div>
+    <script>
+        // Function to load the bottom navigation bar from an external file
+        function loadBottomNav() {
+            fetch('bottom-nav.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('bottom-nav-container').innerHTML = data;
+                    addNavEventListeners();
+                });
+        }
+
+
+        // Load the bottom navigation bar when the page loads
+        document.addEventListener('DOMContentLoaded', loadBottomNav);
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('bottom-nav.html')
+              .then(response => response.text())
+              .then(data => {
+                  document.getElementById('bottom-nav-container').innerHTML = data;
+               });
+        });
+      
+    </script>
 </body>
 </html>
