@@ -29,7 +29,7 @@
             align-items: center;
         }
 
-        #map, #weather {
+        #map {
             height: 500px;
             width: 90%;
             max-width: 1000px;
@@ -40,13 +40,30 @@
             animation: fadeIn 2s ease-in-out;
         }
 
+        #weather {
+            width: 90%;
+            max-width: 500px;
+            padding: 1rem;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
         #weather h3 {
             margin-top: 0;
+            font-size: 1.5rem;
         }
 
         #weather p {
             margin: 0.5rem 0;
-            font-size: 1.2rem;
+            font-size: 1rem;
+        }
+
+        #weather img {
+            width: 100px;
+            height: 100px;
         }
 
         /* Animations */
@@ -55,17 +72,6 @@
                 opacity: 0;
             }
             to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
                 opacity: 1;
             }
         }
@@ -101,11 +107,11 @@
         </div>
     </main>
     <div id="bottom-nav-container">
-        
+        <!-- Bottom navigation will be loaded here -->
     </div>
 
     <script>
-              // Function to add event listeners to the navigation items
+        // Function to add event listeners to the navigation items
         function addEventListeners() {
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.addEventListener('click', event => {
@@ -147,62 +153,64 @@
         // Load the bottom navigation bar when the page loads
         document.addEventListener('DOMContentLoaded', loadBottomNav);
 
-            // Initialize map
-            var map = L.map('map').setView([0, 0], 13); // Default to (0, 0) coordinates
+        // Initialize map
+        var map = L.map('map').setView([0, 0], 13); // Default to (0, 0) coordinates
 
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var userLatLng = [position.coords.latitude, position.coords.longitude];
-                    map.setView(userLatLng, 13);
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var userLatLng = [position.coords.latitude, position.coords.longitude];
+                map.setView(userLatLng, 13);
 
-                    L.marker(userLatLng).addTo(map)
-                        .bindPopup('You are here')
-                        .openPopup();
-                    
-                    // Fetch weather data via server-side proxy
-                    fetchWeatherData(userLatLng)
-                        .then(weatherData => {
-                            displayWeather(weatherData);
-                        })
-                        .catch(error => {
-                            console.error('Error fetching weather data:', error);
-                            var weatherContainer = document.getElementById('weather');
-                            weatherContainer.innerHTML = '<p>Error fetching weather data. Please try again later.</p>';
-                        });
-                }, function(error) {
-                    console.error('Error getting user location:', error);
-                });
-            } else {
-                console.error('Geolocation is not supported by this browser.');
-            }
-
-            function fetchWeatherData(userLatLng) {
-                const weatherEndpoint = `/weather?lat=${userLatLng[0]}&lon=${userLatLng[1]}`; // Using server-side route
-
-                return fetch(weatherEndpoint)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Weather data not available');
-                        }
-                        return response.json();
-                    })
+                L.marker(userLatLng).addTo(map)
+                    .bindPopup('You are here')
+                    .openPopup();
+                
+                // Fetch weather data via API key
+                fetchWeatherData(userLatLng)
                     .then(weatherData => {
-                        return {
-                            temperature: weatherData.main.temp,
-                            description: weatherData.weather[0].description
-                        };
+                        displayWeather(weatherData);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching weather data:', error);
+                        var weatherContainer = document.getElementById('weather');
+                        weatherContainer.innerHTML = '<p>Error fetching weather data. Please try again later.</p>';
                     });
-            }
+            }, function(error) {
+                console.error('Error getting user location:', error);
+            });
+        } else {
+            console.error('Geolocation is not supported by this browser.');
+        }
 
-            function displayWeather(weatherData) {
-                var weatherContainer = document.getElementById('weather');
-                weatherContainer.innerHTML = `
-                    <h3>Current Weather</h3>
-                    <p>Temperature: ${weatherData.temperature.toFixed(1)} °C</p>
-                    <p>Description: ${weatherData.description}</p>
-                `;
-            }
-        });
+        function fetchWeatherData(userLatLng) {
+            const apiKey = '9d5dc0fc37d8f411172887bfe0ae883a'; // Replace with your actual API key
+            const weatherEndpoint = `https://api.openweathermap.org/data/2.5/weather?lat=${userLatLng[0]}&lon=${userLatLng[1]}&appid=${apiKey}&units=metric`;
+
+            return fetch(weatherEndpoint)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Weather data not available');
+                    }
+                    return response.json();
+                })
+                .then(weatherData => {
+                    return {
+                        temperature: weatherData.main.temp,
+                        description: weatherData.weather[0].description,
+                        icon: weatherData.weather[0].icon
+                    };
+                });
+        }
+
+        function displayWeather(weatherData) {
+            var weatherContainer = document.getElementById('weather');
+            weatherContainer.innerHTML = `
+                <h3>Current Weather</h3>
+                <img src="https://openweathermap.org/img/wn/${weatherData.icon}@2x.png" alt="Weather icon">
+                <p><b>${weatherData.temperature.toFixed(1)}</b> °C</p>
+                <p>${weatherData.description}</p>
+            `;
+        }
     </script>
 </body>
 </html>
