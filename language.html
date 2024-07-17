@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Language Translator</title>
     <!-- Font Awesome CDN for microphone icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-lT5qjwpYcm9JS1toI5WmQtrrPjpdjw9FnsyPlA/4k5ea6Z3aX+fOmPWNMJuwm+ZhrN2qqZl+9Qv7zJhOW4eECw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css" integrity="sha512-B46MVOJpI6RBsdcU307elYeStF2JKT87SsHZfRSkjVi4/iZ3912zXi45X5/CBr/GbCyLx6M1GQtTKYRd52Jxgw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style>
@@ -83,11 +83,6 @@
                 <optgroup label="Local Languages">
                     <option value="lg">Luganda</option>
                     <option value="sw">Swahili</option>
-                    <option value="ach">Acholi</option>
-                    <option value="rn">Runyankole</option>
-                    <option value="lg">Lusoga</option>
-                    <option value="teo">Ateso</option>
-                    <option value="lg">Lugisu</option>
                 </optgroup>
                 <optgroup label="International Languages">
                     <option value="en">English</option>
@@ -105,54 +100,22 @@
         </div>
     </div>
     
-    
-    <div class="bottom-nav-container"></div>
+    <div id="bottom-nav-container"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-              // Function to add event listeners to the navigation items
-        function addEventListeners() {
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.addEventListener('click', event => {
-                    // Add your custom interactivity here
-                    // Example: Highlight the selected item
-                    document.querySelectorAll('.nav-item').forEach(nav => {
-                        nav.classList.remove('active');
-                    });
-                    item.classList.add('active');
-                });
-            });
-
-            let lastScrollTop = 0;
-            window.addEventListener('scroll', function() {
-                let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-                const bottomNav = document.querySelector('.bottom-nav');
-
-                if (currentScroll > lastScrollTop) {
-                    // Scrolling down
-                    bottomNav.style.transform = 'translateY(100%)';
-                } else {
-                    // Scrolling up
-                    bottomNav.style.transform = 'translateY(0)';
-                }
-                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
-            }, false);
-        }
-
         // Function to load the bottom navigation bar from an external file
         function loadBottomNav() {
             fetch('bottom-nav.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('bottom-nav-container').innerHTML = data;
-                    addEventListeners();
+                    addNavEventListeners();
                 });
         }
 
         // Load the bottom navigation bar when the page loads
         document.addEventListener('DOMContentLoaded', loadBottomNav);
-      
-        
+
         // JavaScript for translation and voice recognition
         async function translateText() {
             const inputText = document.getElementById('inputText').value;
@@ -163,9 +126,6 @@
             const langMappings = {
                 'lg': 'lg', // Luganda
                 'sw': 'sw', // Swahili
-                'ach': 'ach', // Acholi (Note: if not supported directly, map it to a close language or indicate)
-                'rn': 'rn', // Runyankole
-                'teo': 'teo', // Ateso
                 'en': 'en', // English
                 'fr': 'fr', // French
                 'de': 'de', // German
@@ -179,18 +139,27 @@
             // Fallback for languages not directly supported
             const targetLang = langMappings[languageSelect] || 'en';
 
-            // Make the API call to LibreTranslate using axios
+            console.log('Translating to:', targetLang); // Debugging step
+
+            // Make the API call to LibreTranslate using fetch
             try {
-                const response = await axios.post('https://libretranslate.com/translate', {
-                    q: inputText,
-                    source: 'auto',
-                    target: targetLang,
-                    format: 'text'
-                }, {
-                    headers: { 'Content-Type': 'application/json' }
+                const response = await fetch("https://libretranslate.com/translate", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        q: inputText,
+                        source: "auto",
+                        target: targetLang,
+                        format: "text",
+                        alternatives: 3,
+                        api_key: "" // Optional API key
+                    }),
+                    headers: { "Content-Type": "application/json" }
                 });
 
-                outputText.value = response.data.translatedText;
+                const result = await response.json();
+                console.log('Translation response:', result); // Debugging step
+
+                outputText.value = result.translatedText;
             } catch (error) {
                 console.error('Error:', error);
                 outputText.value = 'Error in translation. Please try again.';
@@ -204,11 +173,13 @@
         recognition.maxAlternatives = 1;
 
         function startVoiceRecognition() {
+            console.log('Starting voice recognition...'); // Debugging step
             recognition.start();
         }
 
         recognition.onresult = (event) => {
             const transcript = event.results[0][0].transcript;
+            console.log('Voice recognition result:', transcript); // Debugging step
             document.getElementById('inputText').value = transcript;
             translateText();
         };
